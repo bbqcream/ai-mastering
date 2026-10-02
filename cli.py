@@ -1,4 +1,4 @@
-"""사용법: python cli.py mix.wav [--ref ref.wav] [--lufs -14] [-o out.wav] [--yes] [--dry-run] [--ab]"""
+"""사용법: python cli.py mix.wav|stems/ [--ref ref.wav] [--lufs -14] [-o out.wav] [--yes] [--dry-run] [--ab]"""
 import argparse
 import sys
 from pathlib import Path
@@ -28,7 +28,7 @@ def confirm(adjs):
 
 def main():
     p = argparse.ArgumentParser(description="마스터링 분석/제안/적용")
-    p.add_argument("input")
+    p.add_argument("input", help="믹스 WAV 또는 정렬된 스템 폴더")
     p.add_argument("--ref", help="참고곡(톤 밸런스 비교용)")
     p.add_argument("--lufs", type=float, default=-14.0, help="타깃 라우드니스 (기본 -14)")
     p.add_argument("--ceiling", type=float, default=-1.0, help="트루피크 상한 dBTP (기본 -1)")
@@ -52,6 +52,8 @@ def main():
         sys.exit(f"오류: {e}")
 
     print("\n[분석: 처리 전]\n    " + fmt(rep.before))
+    if rep.info.get("stems"):
+        print(f"\n합산한 스템 {len(rep.info['stems'])}개: {', '.join(rep.info['stems'])}")
     if args.dry_run:
         print("\n[제안]")
         for i, a in enumerate(rep.adjustments, 1):

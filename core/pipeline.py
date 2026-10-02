@@ -2,7 +2,7 @@
 import numpy as np
 
 from . import master
-from .io import load_audio, save_audio
+from .io import load_audio, load_stems, save_audio
 from .types import Report
 
 
@@ -20,7 +20,11 @@ def run_master(
     dry_run: 분석과 제안만 하고 파일은 만들지 않는다.
     ab_path: 원본을 결과와 같은 라우드니스로 맞춘 비교용 파일 경로.
     """
-    y, sr = load_audio(in_path)
+    if hasattr(in_path, "is_dir") and in_path.is_dir():
+        y, sr, stem_names = load_stems(in_path)
+    else:
+        y, sr = load_audio(in_path)
+        stem_names = None
     before = master.analyze(y, sr)
 
     ref = None
@@ -30,12 +34,15 @@ def run_master(
 
     plan = master.suggest(before, ref, target_lufs, ceiling_db)
     if dry_run:
-        return Report(before=before, adjustments=plan)
+        info = {"stems": stem_names} if stem_names else {}
+        return Report(before=before, adjustments=plan, info=info)
 
     if confirm:
         plan = confirm(plan)
 
     out, info = master.render(y, sr, plan)
+    if stem_names:
+        info["stems"] = stem_names
     save_audio(out_path, out, sr)
     after = master.analyze(out, sr)
 
