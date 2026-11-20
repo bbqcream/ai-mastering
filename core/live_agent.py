@@ -7,9 +7,11 @@ from dataclasses import asdict
 from pathlib import Path
 
 from jsonschema import validate
+from jsonschema.exceptions import ValidationError
 
 from .audio_features import measure_audio
 from .live_audio import capture
+from .io import load_audio
 from .live_safety import CaptureOverload, GainProtection, audition_ranges, validate_parameter
 from .native_effects import NativeEffects, NATIVE_NAMES, native_name
 from .native_control import set_physical
@@ -337,7 +339,7 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
                             tracks[index]["track"] = await call(session, "get_track_info", track_index=index)
                         result = {"write_result": result, "readback": readback}
                 event = {"tool": name, "arguments": args, "result": result, "revision": revision}
-            except ValueError as exc:
+            except (ValueError, ValidationError) as exc:
                 event = {"tool": name, "arguments": args, "error": str(exc)}
             observations.append(event)
             record(event)
@@ -346,6 +348,14 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
 
         print("전체 믹스 캡처 및 마스터링", flush=True)
         master = await asyncio.to_thread(master_audio, final_audio, final_sr, destination / "master.wav", target_lufs=target, ceiling_db=ceiling)
+        exported_audio, exported_sr = await asyncio.to_thread(load_audio, destination / "master.wav")
+        export_analysis = await asyncio.to_thread(measure_audio, exported_audio, exported_sr)
+        if export_analysis.get("silent") or export_analysis["true_peak_db"] > ceiling + 0.05:
+            raise RuntimeError("저장된 마스터 파일의 무음 또는 트루피크 검증에 실패했습니다")
+        report["quality"] = {"export_analysis": export_analysis,
+                             "loudness_error_lu": export_analysis["lufs"] - target,
+                             "true_peak_ceiling_db": ceiling,
+                             "loudness_target_met": abs(export_analysis["lufs"] - target) <= 0.3}
         report.update(status="complete", master=asdict(master))
         await call(session, "set_arrangement_time", time=info.get("current_song_time", 0))
         if info.get("is_playing"):

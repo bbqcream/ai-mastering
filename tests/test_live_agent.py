@@ -79,6 +79,63 @@ async def fake_capture(*args, **kwargs):
 
 
 class LiveAgentTests(unittest.IsolatedAsyncioTestCase):
+    async def test_invalid_model_arguments_are_repaired_without_stopping_the_run(self):
+        model = ScriptedModel([("measure_audio", {"track_index": 999}), ("measure_audio", {}), ("finish", {})])
+        with tempfile.TemporaryDirectory() as folder, patch("core.live_agent.capture", fake_capture):
+            report = await run_agent(FakeSession(), model, Path(folder) / "output")
+        self.assertEqual(report["status"], "complete")
+        self.assertTrue(any("error" in event for event in report["events"]))
+        self.assertTrue(report["quality"]["loudness_target_met"])
+
+    async def test_prepare_configure_remeasure_and_export(self):
+        class Session(FakeSession):
+            def __init__(self):
+                super().__init__()
+                self.devices = []
+                self.muted_writes = []
+
+            async def call_tool(self, name, arguments):
+                if name == "get_track_info":
+                    result = {"name": "Kick", "solo": False, "mute": False, "devices": list(self.devices)}
+                elif name == "get_browser_items_at_path":
+                    result = {"items": [{"name": "EQ Eight", "uri": "native:eq8"}]}
+                elif name == "load_instrument_or_effect":
+                    self.devices.append({"name": "EQ Eight", "class_name": "Eq8", "index": 0})
+                    result = "Loaded"
+                elif name == "get_device_parameters":
+                    result = {"device": {"name": "EQ Eight", "class_name": "Eq8", "parameters": [
+                        {"index": 0, "name": "Frequency", "min": 0, "max": 1, "value": self.parameter,
+                         "value_string": f"{20 * 1000 ** self.parameter:.2f} Hz"},
+                    ]}}
+                elif name == "set_track_volume" and "value" in arguments:
+                    self.value = arguments["value"]
+                    result = "Set volume"
+                elif name == "set_device_parameter":
+                    self.muted_writes.append(self.value == 0)
+                    return await super().call_tool(name, arguments)
+                else:
+                    return await super().call_tool(name, arguments)
+                return SimpleNamespace(isError=False, content=[SimpleNamespace(type="text", text=json.dumps(result))])
+
+            async def list_tools(self):
+                page = await super().list_tools()
+                page.tools.append(SimpleNamespace(name="get_browser_items_at_path", description="browser", inputSchema={"type": "object"}))
+                return page
+
+        session = Session()
+        model = ScriptedModel([
+            ("prepare_track", {"track_index": 0}),
+            ("set_effect_value", {"track_index": 0, "device_index": 0, "parameter_index": 0, "target": 70, "unit": "hz"}),
+            ("measure_audio", {"track_index": 0}), ("measure_audio", {}), ("finish", {}),
+        ])
+        with tempfile.TemporaryDirectory() as folder, patch("core.live_agent.capture", fake_capture):
+            report = await run_agent(session, model, Path(folder) / "output")
+        self.assertEqual(report["status"], "complete")
+        self.assertAlmostEqual(20 * 1000 ** session.parameter, 70, delta=1)
+        self.assertEqual(len(session.devices), 1)
+        self.assertTrue(all(session.muted_writes))
+        self.assertEqual(session.value, .85)
+
     async def test_overloaded_capture_is_discarded_and_retried_at_lower_master_gain(self):
         count = 0
 
