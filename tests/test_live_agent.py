@@ -79,6 +79,31 @@ async def fake_capture(*args, **kwargs):
 
 
 class LiveAgentTests(unittest.IsolatedAsyncioTestCase):
+    async def test_destructive_live_edit_is_rolled_back_before_export(self):
+        session = FakeSession()
+
+        async def changing_capture(*args, **kwargs):
+            sr = 48000
+            t = np.arange(sr) / sr
+            if session.parameter == .5:
+                mono = .45 * np.sin(2 * np.pi * 100 * t) * np.exp(-30 * (t % .25))
+            else:
+                mono = .13 * np.sin(2 * np.pi * 100 * t)
+            return np.column_stack([mono, mono]).astype(np.float32), sr
+
+        model = ScriptedModel([
+            ("get_device_parameters", {"track_index": 0, "device_index": 0}),
+            ("set_device_parameter", {"track_index": 0, "device_index": 0, "parameter_index": 0, "value": .4}),
+            ("measure_audio", {}), ("finish", {}),
+        ])
+        with tempfile.TemporaryDirectory() as folder, patch("core.live_agent.capture", changing_capture):
+            report = await run_agent(session, model, Path(folder) / "output")
+        self.assertEqual(session.parameter, .5)
+        self.assertEqual(report["status"], "complete")
+        rejected = [event for event in report["events"] if event.get("change_review") == "evaluated" and not event["result"]["accepted"]]
+        self.assertEqual(len(rejected), 1)
+        self.assertTrue(rejected[0]["result"]["reasons"])
+
     async def test_invalid_model_arguments_are_repaired_without_stopping_the_run(self):
         model = ScriptedModel([("measure_audio", {"track_index": 999}), ("measure_audio", {}), ("finish", {})])
         with tempfile.TemporaryDirectory() as folder, patch("core.live_agent.capture", fake_capture):

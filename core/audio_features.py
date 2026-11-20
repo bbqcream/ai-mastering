@@ -1,6 +1,7 @@
 """Audio evidence supplied to the local mixing model."""
 
 import numpy as np
+from scipy.signal import welch
 
 from .master.analyze import UnmeasurableLoudness, analyze
 
@@ -21,6 +22,14 @@ def measure_audio(audio, sample_rate):
         "full_scale_fraction": float(np.mean(np.abs(audio) >= 0.999)),
         "dc_offset": [float(value) for value in np.mean(audio, axis=0)],
     })
+    frequencies, channel_psd = welch(audio, fs=sample_rate, nperseg=min(len(audio), 8192), axis=0)
+    power = channel_psd.mean(axis=1)
+    total = max(float(power[(frequencies >= 20) & (frequencies < 16000)].sum()), 1e-20)
+    centers = np.geomspace(40, 16000, 27)
+    result["spectrum_db"] = {}
+    for center in centers:
+        mask = (frequencies >= center / 2 ** (1 / 6)) & (frequencies < center * 2 ** (1 / 6)) & (frequencies < 16000)
+        result["spectrum_db"][str(round(center))] = float(10 * np.log10(max(float(power[mask].sum()) / total, 1e-12)))
     if audio.shape[1] == 2:
         left, right = audio.astype(np.float64).T
         mid, side = (left + right) / 2, (left - right) / 2

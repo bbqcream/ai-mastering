@@ -3,6 +3,7 @@
 import asyncio
 import json
 from copy import deepcopy
+from contextlib import nullcontext
 from dataclasses import asdict
 from pathlib import Path
 
@@ -10,9 +11,11 @@ from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
 from .audio_features import measure_audio
+from .agent_context import model_context
 from .live_audio import capture
+from .live_review import ChangeReview
 from .io import load_audio
-from .live_safety import CaptureOverload, GainProtection, audition_ranges, validate_parameter
+from .live_safety import CaptureOverload, GainProtection, audition_ranges, active_audition_ranges, validate_parameter
 from .native_effects import NativeEffects, NATIVE_NAMES, native_name
 from .native_control import set_physical
 from .pipeline import master_audio
@@ -47,14 +50,14 @@ Use identify_track to correct an uncertain role from the name, device chain and 
 You receive real measured audio features, not perceptual audio input. Never claim to have heard audio.
 Balance level and pan using measurements and musical roles. Keep bass, kick, lead vocals centered.
 Inspect existing effects and parameters first. Set EQ and compression only where measurements justify it.
-Get device parameters BEFORE setting them. Never guess index, units, or a browser URI. Browse audio
+Get device parameters BEFORE setting them. Never guess index, units, or a browser URI.
 Use set_effect_value with real Hz/ms/dB/ratio/percent to configure continuous controls. The host maps
 these to raw Live parameters by reading actual displayed values while playback is stopped. Prefer
 this to raw set_device_parameter, especially when min/max are 0..1. Inspect indices first.
 For filter modes and other quantized parameters, use the returned value_items labels. If display
 values are unavailable, report that install_live_support.py and a Live restart are needed rather
 than inventing a physical-unit mapping.
-effects to load EQ Eight, Compressor, Glue Compressor, Utility, Limiter, Reverb or Delay only when
+Browse audio effects to load EQ Eight, Compressor, Glue Compressor, Utility, Limiter, Reverb or Delay only when
 needed, then inspect the new chain and its parameters. Use each track's mixing_guidance as a starting
 point, NOT a fixed preset. Request prepare_track to discover and load the suggested native effects.
 Measure before/after. Avoid compression on hats and already limited stems. Preserve kick/snare attacks,
@@ -69,6 +72,16 @@ for the full mix (track_index omitted). Reassess whether further correction is n
 a track untouched if the measurements justify it. Call finish only when every active track has been
 assessed and the mix was measured after the last write. Mastering and final full-length capture are
 performed by the host after finish. Explain each action in Korean. No user approval is needed."""
+
+PROMPT += """
+Track summaries cover the whole project. focus_track contains detailed measurements for the last
+addressed track. Call get_track_info on another index to focus it. current_device holds the most
+recent device parameters. Re-read older device parameters as needed, never guess missing indices.
+Potential masking findings rank shared frequency regions, not proof of simultaneous masking. Use
+complementary EQ cuts only after checking the mix and preserving fundamentals. Each numerical edit
+is measured before/after and can be rolled back automatically if it damages signal, transients,
+stereo correlation or bass fundamentals. A rejected edit is not applied. Use the review's measured
+reasons to choose a smaller or different edit. Do not repeat a rejected setting unchanged."""
 
 
 NATIVE_EFFECTS = NATIVE_NAMES
@@ -145,10 +158,23 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
         observations = []
         revision = 0
         measured = {}
+
+        def advance_revision():
+            nonlocal revision
+            revision += 1
         protection = GainProtection(session, call, record)
         native_effects = NativeEffects(session, call, record)
         ranges = audition_ranges(start, end)
         report["analysis_ranges"] = ranges
+        track_ranges = {}
+        if "get_arrangement_clips" in tools:
+            for index in tracks:
+                try:
+                    clips = await call(session, "get_arrangement_clips", track_index=index)
+                    track_ranges[index] = active_audition_ranges(start, end, clips)
+                except ValueError as exc:
+                    record({"clip_range_fallback": index, "reason": str(exc)})
+        report["track_analysis_ranges"] = track_ranges
 
         def sync_protection():
             nonlocal revision
@@ -159,19 +185,25 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
                     tracks[index]["mixer"] = mixer
 
         async def protected_capture(index=None, full=False):
+            selected_ranges = track_ranges.get(index, ranges) if not full else ranges
             for attempt in range(3):
-                for begin, finish in ranges:
+                for begin, finish in selected_ranges:
                     await protection.check(begin, finish)
                 sync_protection()
                 chunks = []
+                sections = []
                 try:
-                    for begin, finish in ([(start, end)] if full else ranges):
+                    for begin, finish in ([(start, end)] if full else selected_ranges):
                         audio, sr = await capture(session, call, begin, finish, index, device,
                                                   max_seconds=max(900, (end - start) * 4) if full else 180)
                         if np.max(np.abs(audio)) >= 0.98:
                             raise CaptureOverload("캡처 출력 피크 초과")
                         chunks.append(audio)
-                    return np.concatenate(chunks), sr
+                        if not full:
+                            analysis = await asyncio.to_thread(measure_audio, audio, sr)
+                            sections.append({"start_beats": begin, "end_beats": finish,
+                                             "analysis": {key: analysis[key] for key in ("silent", "lufs", "true_peak_db", "crest_db") if key in analysis}})
+                    return np.concatenate(chunks), sr, sections
                 except CaptureOverload as exc:
                     record({"protection": "capture_overload", "attempt": attempt + 1, "track_index": index, "reason": str(exc)})
                     await protection.attenuate(6)
@@ -179,14 +211,16 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
             raise RuntimeError("출력 과부하가 반복되어 보호를 위해 중단합니다")
 
         async def measure(index=None, full=False):
-            audio, sr = await protected_capture(index, full)
-            analysis = measure_audio(audio, sr)
+            audio, sr, sections = await protected_capture(index, full)
+            analysis = await asyncio.to_thread(measure_audio, audio, sr)
+            analysis["sections"] = sections
             measured[index] = revision
             if index is not None:
                 tracks[index]["analysis"] = analysis
                 tracks[index]["mixing_guidance"] = mixing_guidance(tracks[index]["role"], analysis)
             return analysis
 
+        review = ChangeReview(session, call, measure, record, advance_revision)
         master_db = report["initial_master"]["volume"].get("db")
         if master_db is not None and master_db > -12:
             await protection.attenuate(master_db + 12)
@@ -221,11 +255,8 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
         schema["properties"] = dict(ACTION_SCHEMA["properties"], tool={"type": "string", "enum": list(catalog)})
 
         for step in range(max_steps):
-            action = await asyncio.to_thread(model.decide, PROMPT, {
-                "tracks": tracks, "session": info, "tools": catalog,
-                "history": observations[-16:], "revision": revision,
-                "measurements_at_revision": {str(key): value for key, value in measured.items()},
-            }, schema)
+            action = await asyncio.to_thread(model.decide, PROMPT,
+                                             model_context(tracks, info, catalog, observations, revision, measured), schema)
             name, args = action["tool"], action["arguments"]
             print(f"AI {step + 1}/{max_steps} · {name} · {action['reason']}", flush=True)
             record({"action": action, "state": "requested"})
@@ -238,7 +269,7 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
                         mixer = await call(session, "get_mixer", track_index=index)
                         if track["mixing_guidance"]["center_pan"] and abs(mixer["panning"]["value"]) > 0.05:
                             raise ValueError(f"{track['track']['name']}: 중앙 팬을 확인하세요")
-                    final_audio, final_sr = await protected_capture(full=True)
+                    final_audio, final_sr, _ = await protected_capture(full=True)
                     if measured.get(None) != revision or any(measured.get(index) != revision for index in tracks):
                         raise ValueError("최종 출력 중 자동 피크 보호가 작동했습니다. 트랙과 믹스를 다시 측정하세요")
                     break
@@ -267,10 +298,11 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
                     current = await call(session, "get_track_info", track_index=index)
                     if current["name"] != tracks[index]["track"]["name"]:
                         raise RuntimeError("트랙 순서가 변경되었습니다")
-                    revision += 1
-                    result = await set_physical(session, call, record, index, args["device_index"],
-                                                args["parameter_index"], args["target"], args["unit"])
-                    parameters[key] = result
+                    async with review.edit(name, args, tracks[index]["role"]) as evaluation:
+                        await set_physical(session, call, record, index, args["device_index"],
+                                           args["parameter_index"], args["target"], args["unit"])
+                    parameters[key] = await call(session, "get_device_parameters", track_index=index, device_index=args["device_index"])
+                    result = {"readback": parameters[key], "review": evaluation}
                 else:
                     index = args.get("track_index")
                     if name in WRITE_TOOLS:
@@ -314,30 +346,38 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
                             raise ValueError("브라우저에서 확인한 Ableton 내장 이펙트 URI를 사용하세요")
                         if any(item["name"].casefold() == (native_name(entry) or "").casefold() for entry in current.get("devices", [])):
                             raise ValueError("이미 있는 이펙트입니다. 기존 파라미터를 조절하세요")
-                    if name in WRITE_TOOLS:
-                        revision += 1
-                    result = await call(session, name, **args)
-                    if name == "get_device_parameters":
-                        parameters[(index, args["device_index"])] = result
-                    if name in WRITE_TOOLS:
-                        # Read back all writes and give the observation to the model.
-                        readback = await call(session,
-                            "get_device_parameters" if name == "set_device_parameter" else "get_mixer",
-                            **({"track_index": index, "device_index": args["device_index"]} if name == "set_device_parameter" else {"track_index": index}))
-                        if name == "set_device_parameter":
-                            actual = next(entry["value"] for entry in readback["device"]["parameters"] if entry["index"] == args["parameter_index"])
-                            if abs(actual - args["value"]) > 0.01:
-                                raise ValueError("디바이스 파라미터 적용값 불일치")
-                            parameters[(index, args["device_index"])] = readback
-                        if name == "set_track_volume" and abs(readback["volume"]["db"] - args["db"]) > 0.1:
-                            raise ValueError("페이더 적용값 불일치")
-                        if name == "set_track_panning" and abs(readback["panning"]["value"] - args["value"]) > 0.01:
-                            raise ValueError("팬 적용값 불일치")
-                        if name != "set_device_parameter":
-                            tracks[index]["mixer"] = readback
-                        if name == "load_instrument_or_effect":
-                            tracks[index]["track"] = await call(session, "get_track_info", track_index=index)
-                        result = {"write_result": result, "readback": readback}
+                    reversible = name in {"set_track_volume", "set_track_panning", "set_device_parameter"}
+                    context = review.edit(name, args, tracks[index]["role"]) if reversible else nullcontext({})
+                    if name == "load_instrument_or_effect":
+                        advance_revision()
+                    async with context as evaluation:
+                        result = await call(session, name, **args)
+                        if name == "get_device_parameters":
+                            parameters[(index, args["device_index"])] = result
+                        if name in WRITE_TOOLS:
+                            readback = await call(session,
+                                "get_device_parameters" if name == "set_device_parameter" else "get_mixer",
+                                **({"track_index": index, "device_index": args["device_index"]} if name == "set_device_parameter" else {"track_index": index}))
+                            if name == "set_device_parameter":
+                                actual = next(entry["value"] for entry in readback["device"]["parameters"] if entry["index"] == args["parameter_index"])
+                                if abs(actual - args["value"]) > 0.01:
+                                    raise ValueError("디바이스 파라미터 적용값 불일치")
+                                parameters[(index, args["device_index"])] = readback
+                            if name == "set_track_volume" and abs(readback["volume"]["db"] - args["db"]) > 0.1:
+                                raise ValueError("페이더 적용값 불일치")
+                            if name == "set_track_panning" and abs(readback["panning"]["value"] - args["value"]) > 0.01:
+                                raise ValueError("팬 적용값 불일치")
+                            if name == "load_instrument_or_effect":
+                                tracks[index]["track"] = await call(session, "get_track_info", track_index=index)
+                            result = {"write_result": result, "readback": readback}
+                    if evaluation:
+                        result["review"] = evaluation
+                    if name == "set_device_parameter":
+                        parameters[(index, args["device_index"])] = await call(session, "get_device_parameters", track_index=index, device_index=args["device_index"])
+                        result["readback"] = parameters[(index, args["device_index"])]
+                    if name in {"set_track_volume", "set_track_panning"}:
+                        tracks[index]["mixer"] = await call(session, "get_mixer", track_index=index)
+                        result["readback"] = tracks[index]["mixer"]
                 event = {"tool": name, "arguments": args, "result": result, "revision": revision}
             except (ValueError, ValidationError) as exc:
                 event = {"tool": name, "arguments": args, "error": str(exc)}

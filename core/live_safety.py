@@ -20,6 +20,46 @@ def audition_ranges(start, end):
     return selected
 
 
+def active_audition_ranges(start, end, payload):
+    """Prefer regions occupied by Arrangement clips, preserving one fixed comparison set."""
+    clips = payload.get("clips", []) if isinstance(payload, dict) else payload
+    if not isinstance(clips, list):
+        return audition_ranges(start, end)
+    intervals = []
+    for clip in clips:
+        if not isinstance(clip, dict):
+            continue
+        begin = clip.get("start_time", clip.get("start"))
+        finish = clip.get("end_time", clip.get("end"))
+        if finish is None and isinstance(begin, (int, float)) and isinstance(clip.get("length"), (int, float)):
+            finish = begin + clip["length"]
+        if not isinstance(begin, (int, float)) or not isinstance(finish, (int, float)):
+            continue
+        if math.isfinite(begin) and math.isfinite(finish) and min(end, finish) > max(start, begin):
+            intervals.append((max(start, begin), min(end, finish)))
+    merged = []
+    for begin, finish in sorted(intervals):
+        if merged and begin <= merged[-1][1]:
+            merged[-1] = (merged[-1][0], max(merged[-1][1], finish))
+        else:
+            merged.append((begin, finish))
+    if not merged:
+        return audition_ranges(start, end)
+    if len(merged) == 1:
+        return audition_ranges(*merged[0])
+    spans = sorted(merged, key=lambda span: span[1] - span[0], reverse=True)[:3]
+    selected = []
+    for begin, finish in spans:
+        duration = min(16, finish - begin)
+        middle = (begin + finish - duration) / 2
+        selected.append((middle, middle + duration))
+    for span in spans:
+        for begin, finish in audition_ranges(*span):
+            if len(selected) < 3 and all(finish <= old_begin or begin >= old_end for old_begin, old_end in selected):
+                selected.append((begin, finish))
+    return sorted(selected)
+
+
 class GainProtection:
     def __init__(self, session, call, record):
         self.session = session
