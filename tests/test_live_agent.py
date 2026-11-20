@@ -12,6 +12,7 @@ import numpy as np
 
 from core.live_agent import REQUIRED, run_agent
 from core.live_audio import capture
+from core.live_safety import CaptureOverload
 
 
 class FakeSession:
@@ -20,6 +21,7 @@ class FakeSession:
         self.value = 0.85
         self.parameter = 0.5
         self.writes = []
+        self.master_db = -12
 
     async def list_tools(self):
         names = REQUIRED | {"get_browser_tree", "load_instrument_or_effect"}
@@ -28,20 +30,30 @@ class FakeSession:
 
     async def call_tool(self, name, arguments):
         if name == "get_session_info":
-            result = {"track_count": 1, "song_length": 32, "loop": False}
+            result = {"track_count": 1, "song_length": 32, "loop": False, "is_playing": False}
+        elif name == "measure_mix":
+            result = {"master_peak_db": -8, "tracks": [{"index": 0, "name": "Kick", "is_group": False, "peak_db": -10}]}
+        elif name in {"stop_playback", "set_arrangement_time"}:
+            result = "OK"
         elif name == "get_track_info":
             result = {"name": "Kick", "solo": False, "mute": False, "devices": []}
         elif name == "get_mixer":
-            result = {"name": "Kick", "is_group": False, "volume": {"value": self.value, "db": self.db}, "panning": {"value": 0}}
+            if arguments.get("track_type") == "master":
+                result = {"name": "Master", "volume": {"value": .6, "db": self.master_db}, "panning": {"value": 0}}
+            else:
+                result = {"name": "Kick", "is_group": False, "volume": {"value": self.value, "db": self.db}, "panning": {"value": 0}}
         elif name == "get_device_parameters":
-            result = {"device": {"parameters": [{"index": 0, "name": "Gain", "value": self.parameter, "min": 0, "max": 1}]}}
+            result = {"device": {"name": "EQ Eight", "class_name": "Eq8", "parameters": [{"index": 0, "name": "Gain", "value": self.parameter, "min": 0, "max": 1}]}}
         elif name == "set_device_parameter":
             self.parameter = arguments["value"]
             self.writes.append((name, arguments))
             result = "Set parameter"
         elif name == "set_track_volume":
-            self.db = arguments["db"]
-            self.value = 0.85 + self.db / 50
+            if arguments.get("track_type") == "master":
+                self.master_db = arguments["db"]
+            else:
+                self.db = arguments["db"]
+                self.value = 0.85 + self.db / 50
             self.writes.append((name, arguments))
             result = "Set volume"
         else:
@@ -67,6 +79,51 @@ async def fake_capture(*args, **kwargs):
 
 
 class LiveAgentTests(unittest.IsolatedAsyncioTestCase):
+    async def test_overloaded_capture_is_discarded_and_retried_at_lower_master_gain(self):
+        count = 0
+
+        async def overloaded_once(*args, **kwargs):
+            nonlocal count
+            count += 1
+            audio, sr = await fake_capture()
+            return (audio * 10 if count == 1 else audio), sr
+
+        session = FakeSession()
+        model = ScriptedModel([("measure_audio", {}), ("finish", {})])
+        with tempfile.TemporaryDirectory() as folder, patch("core.live_agent.capture", overloaded_once):
+            report = await run_agent(session, model, Path(folder) / "output")
+        self.assertEqual(report["status"], "complete")
+        self.assertEqual(session.master_db, -18)
+        self.assertTrue(any(event.get("protection") == "capture_overload" for event in report["events"]))
+
+    async def test_live_overload_stops_playback_even_if_it_was_initially_playing(self):
+        class Recorder:
+            def __init__(self, device):
+                self.ready = threading.Event()
+                self.stop = threading.Event()
+                self.peak = 1.0
+
+            def record(self, limit):
+                self.ready.set()
+                self.stop.wait(5)
+                return np.ones((48000, 2)), 48000
+
+        state = {"position": 4, "playing": True}
+
+        async def tool(session, name, **args):
+            if name == "get_session_info":
+                return {"track_count": 0, "loop": False, "current_song_time": state["position"], "is_playing": state["playing"]}
+            if name == "set_arrangement_time":
+                state["position"] = args["time"]
+            if name in {"start_playback", "stop_playback"}:
+                state["playing"] = name == "start_playback"
+
+        with patch("core.live_audio.LoopbackRecorder", Recorder):
+            with self.assertRaises(CaptureOverload):
+                await capture(None, tool, 0, 16)
+        self.assertFalse(state["playing"])
+        self.assertEqual(state["position"], 4)
+
     async def test_capture_failure_restores_solo_and_transport(self):
         class Recorder:
             def __init__(self, device):

@@ -6,6 +6,8 @@ import time
 
 import numpy as np
 
+from .live_safety import CaptureOverload
+
 
 class LoopbackRecorder:
     def __init__(self, device=None, sample_rate=48000):
@@ -13,6 +15,7 @@ class LoopbackRecorder:
         self.sample_rate = sample_rate
         self.ready = threading.Event()
         self.stop = threading.Event()
+        self.peak = 0.0
 
     def record(self, max_seconds):
         import soundcard as sc
@@ -23,7 +26,11 @@ class LoopbackRecorder:
             self.ready.set()
             start = time.monotonic()
             while not self.stop.is_set() and time.monotonic() - start < max_seconds:
-                chunks.append(recorder.record(numframes=2048))
+                chunk = recorder.record(numframes=2048)
+                if not np.isfinite(chunk).all():
+                    raise RuntimeError("오디오 캡처에 유효하지 않은 샘플이 있습니다")
+                self.peak = max(self.peak, float(np.max(np.abs(chunk))))
+                chunks.append(chunk)
         if not chunks:
             raise RuntimeError("루프백 오디오를 캡처하지 못했습니다")
         return np.concatenate(chunks).astype(np.float32), self.sample_rate
@@ -42,6 +49,7 @@ async def capture(session, call, start_beats, end_beats, track_index=None, devic
             states.append((index, info["name"], bool(info["solo"])))
     recorder = LoopbackRecorder(device)
     recording = None
+    overloaded = False
     try:
         await call(session, "stop_playback")
         for index, _, _ in states:
@@ -57,6 +65,9 @@ async def capture(session, call, start_beats, end_beats, track_index=None, devic
         previous = start_beats
         last_move = time.monotonic()
         while True:
+            if getattr(recorder, "peak", 0) >= 0.98:
+                overloaded = True
+                raise CaptureOverload("루프백 피크가 -0.18 dBFS에 도달해 재생을 중단했습니다")
             info = await call(session, "get_session_info")
             position = info["current_song_time"]
             if position >= end_beats:
@@ -71,6 +82,9 @@ async def capture(session, call, start_beats, end_beats, track_index=None, devic
             await asyncio.sleep(0.2)
         await call(session, "stop_playback")
         await asyncio.sleep(2)  # Capture effect tails.
+        if getattr(recorder, "peak", 0) >= 0.98:
+            overloaded = True
+            raise CaptureOverload("이펙트 테일에서 출력 과부하를 감지했습니다")
     finally:
         recorder.stop.set()
         restore_errors = []
@@ -89,7 +103,7 @@ async def capture(session, call, start_beats, end_beats, track_index=None, devic
             for tool, params in [
                 ("stop_playback", {}),
                 ("set_arrangement_time", {"time": transport["current_song_time"]}),
-                ("start_playback" if transport["is_playing"] else "stop_playback", {}),
+                ("start_playback" if transport["is_playing"] and not overloaded else "stop_playback", {}),
             ]:
                 try:
                     await call(session, tool, **params)

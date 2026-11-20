@@ -40,17 +40,17 @@ PROFILES = {
 
 # Specific names take precedence over a family name, e.g. 808 Kick over 808.
 ALIASES = (
-    ("backing_vocal", "backing vocal|backing vocals|bg vocal|back vocal|bgv|bvox|bgvox|vocal double|vox double|adlib|ad lib|vocal harmony|vox harmony|백보컬|코러스|화음|애드립"),
+    ("backing_vocal", "backing vocal|backing vocals|bg vocal|back vocal|bg vox|bgv|bvox|bgvox|vocal double|vox double|adlib|ad lib|vocal harmony|vox harmony|백보컬|코러스|화음|애드립|보컬더블|더블보컬|백업보컬"),
     ("lead_vocal", "lead vocal|lead vox|main vocal|main vox|리드보컬|메인보컬|리드 보컬|메인 보컬"),
-    ("kick", "kick|kick drum|bd|bass drum|킥|킥드럼|베이스 드럼"),
+    ("kick", "kick|kick drum|bd|bass drum|킥|킥드럼|베이스드럼|베이스 드럼"),
     ("snare", "snare|clap|rimshot|스네어|클랩|박수"),
-    ("hi_hat", "hi hat|hi hats|hihat|hihats|hh|하이햇|하이햇트|하이 햇"),
+    ("hi_hat", "hi hat|hi hats|hihat|hihats|open hat|closed hat|hat|hats|hh|하이햇|하이햇트|하이 햇|오픈햇|클로즈햇"),
     ("cymbal", "cymbal|cymbals|ride cymbal|crash|overhead|overheads|oh|심벌|심벌즈|크래시|라이드"),
     ("lead_vocal", "vocal|vocals|vox|voc|rap|보컬|랩"),
-    ("bass", "bass|sub|subbass|808|bassline|베이스|서브베이스|서브 베이스"),
+    ("bass", "bass|sub|subbass|808|bassline|베이스|베이스기타|서브베이스|서브 베이스"),
     ("percussion", "percussion|perc|tom|toms|shaker|conga|tambourine|탐|타악기|퍼커션|셰이커"),
     ("drums", "drum|drums|drumkit|드럼|드럼버스"),
-    ("guitar", "guitar|guitars|gtr|gt|acoustic guitar|일렉기타|어쿠스틱기타|기타"),
+    ("guitar", "guitar|guitars|gtr|gt|acoustic guitar|electric guitar|일렉기타|어쿠스틱기타|일렉 기타|어쿠스틱 기타|기타"),
     ("keys", "piano|keys|keyboards|keyboard|organ|rhodes|피아노|건반|오르간"),
     ("strings", "strings|violin|viola|cello|스트링|바이올린|첼로|현악기"),
     ("winds", "brass|sax|saxophone|trumpet|flute|woodwind|브라스|색소폰|트럼펫|플루트|관악기"),
@@ -84,3 +84,23 @@ def track_pan(name, profile, position):
     if tokens & {"r", "right", "오른쪽"}:
         return profile.pan
     return profile.pan * (-1 if position % 2 == 0 else 1)
+
+
+def mixing_guidance(role, analysis):
+    """Physical-unit goals for AI, never raw Live parameter conversions."""
+    profile = PROFILES[role]
+    effects = ["EQ Eight"] if profile.highpass else []
+    if profile.ratio > 1 and analysis.get("plr_db", 0) > 12:
+        effects.append("Compressor")
+    return {
+        "role": role, "suggested_native_effects": effects,
+        "highpass_start_hz": profile.highpass,
+        "inspect_eq_band": profile.eq_band, "eq_center_hz": profile.eq_freq,
+        "max_eq_boost_db": 3, "max_eq_cut_db": 3,
+        "compression_ratio_start": profile.ratio,
+        "attack_start_ms": profile.attack_ms, "release_start_ms": profile.release_ms,
+        "compression_gain_reduction_goal_db": [1, 3],
+        "relative_loudness_offset_lu": profile.level,
+        "center_pan": role in {"kick", "bass", "lead_vocal", "drums"},
+        "instructions": "Use these only as starting points. Preserve the fundamental. Translate physical units using actual Live metadata. If the mapping is unclear, do not guess. Avoid boosting a clipped or already compressed signal.",
+    }
