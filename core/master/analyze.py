@@ -3,6 +3,11 @@ import numpy as np
 import pyloudnorm as pyln
 from scipy.signal import resample_poly, welch
 
+
+class UnmeasurableLoudness(ValueError):
+    pass
+
+
 BANDS = {
     "sub": (20, 60),
     "low": (60, 250),
@@ -25,8 +30,8 @@ def true_peak_db(y):
 
 def band_balance(y, sr):
     """전체 에너지 대비 각 대역 에너지(dB). 곡 전체 평균 스펙트럼 기준."""
-    mono = y.mean(axis=1)
-    freqs, psd = welch(mono, fs=sr, nperseg=8192)
+    freqs, channel_psd = welch(y, fs=sr, nperseg=min(len(y), 8192), axis=0)
+    psd = channel_psd.mean(axis=1)
     total = psd[(freqs >= 20) & (freqs < 16000)].sum() + 1e-20
     out = {}
     for name, (lo, hi) in BANDS.items():
@@ -39,7 +44,7 @@ def analyze(y, sr):
     y64 = y.astype(np.float64)
     lufs = float(pyln.Meter(sr).integrated_loudness(y64))
     if not np.isfinite(lufs):
-        raise ValueError("라우드니스를 측정할 수 없어요 (무음이거나 너무 짧은 파일)")
+        raise UnmeasurableLoudness("라우드니스를 측정할 수 없어요 (무음이거나 너무 짧은 파일)")
     tp = float(true_peak_db(y64))
     return {
         "lufs": lufs,
