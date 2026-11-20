@@ -1,0 +1,23 @@
+{
+  "status": "failed",
+  "model": "qwen3:8b",
+  "events": [
+    {
+      "group_skipped": 0,
+      "name": "1-Group"
+    },
+    {
+      "group_skipped": 1,
+      "name": "2-Group"
+    },
+    {
+      "error": "시작 전에 Live 트랙의 Solo를 모두 해제하세요"
+    }
+  ],
+  "range": {
+    "start_beats": 0,
+    "end_beats": 338.6040610431235
+  },
+  "error": "시작 전에 Live 트랙의 Solo를 모두 해제하세요",
+  "recovery": "Live에 적용한 믹스는 유지됩니다. initial_tracks 및 events에서 이전값과 변경 내역을 확인하세요"
+}

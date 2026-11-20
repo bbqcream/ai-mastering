@@ -1,0 +1,74 @@
+{
+  "run_command": "python auto_live.py --output-dir live-result-mixed",
+  "status": "failed",
+  "failure": "Live 임시 상태 복구 확인 필요: string indices must be integers, not 'str'",
+  "ai_generated_commands": [],
+  "ai_command_note": "The run stopped during track analysis before local AI inference; no EQ, compressor, pan, or per-track mix commands were generated.",
+  "recorded_mcp_activity": [
+    {
+      "tool": "switch_to_arrangement_view",
+      "count": 1
+    },
+    {
+      "tool": "measure_levels",
+      "count": 74,
+      "note": "Aggregated protective meter scans recorded in report.json"
+    },
+    {
+      "tool": "set_track_volume",
+      "track_type": "master",
+      "verified_changes": [
+        {
+          "track_type": "master",
+          "track_index": 0,
+          "name": "Main",
+          "before_db": -12.0,
+          "after_db": -18.001
+        },
+        {
+          "track_type": "master",
+          "track_index": 0,
+          "name": "Main",
+          "before_db": -18.001,
+          "after_db": -24.002
+        },
+        {
+          "track_type": "master",
+          "track_index": 0,
+          "name": "Main",
+          "before_db": -24.002,
+          "after_db": -30.002
+        }
+      ]
+    },
+    {
+      "tool": "set_track_solo",
+      "note": "?? Solo ??; ?? ? ?? Live? ?? ?? Solo? ?? ?? ?(0?)? ??"
+    }
+  ],
+  "capture_overloads": [
+    {
+      "track_index": 16,
+      "track_name": "17-OS_SCS_Hi_Hat_Flourish_07",
+      "reason": "이펙트 테일에서 출력 과부하를 감지했습니다"
+    },
+    {
+      "track_index": 20,
+      "track_name": "21-TS_NIR_Z_JJ_crash_2_one_shot_big_very_hard",
+      "reason": "루프백 피크가 -0.18 dBFS에 도달해 재생을 중단했습니다"
+    },
+    {
+      "track_index": 23,
+      "track_name": "24-KSHMR_sok5_150_snare_marching_triplet_cadence",
+      "reason": "루프백 피크가 -0.18 dBFS에 도달해 재생을 중단했습니다"
+    }
+  ],
+  "manual_recovery": {
+    "tool": "set_track_volume",
+    "track_type": "master",
+    "track_index": 0,
+    "db": -12.0,
+    "result": "verified success"
+  },
+  "full_report": "report.json"
+}

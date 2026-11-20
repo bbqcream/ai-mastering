@@ -1,0 +1,3388 @@
+{
+  "status": "failed",
+  "model": "qwen3:8b",
+  "events": [
+    {
+      "group_skipped": 8,
+      "name": "9-Group"
+    },
+    {
+      "group_skipped": 9,
+      "name": "10-Group"
+    },
+    {
+      "protection": "meter_scan",
+      "measurement": {
+        "samples": 48,
+        "seconds": 4.9,
+        "master_peak_db": -19.181243777275085,
+        "target_db": -6.0,
+        "headroom_to_target_db": 13.18,
+        "tracks": [
+          {
+            "index": 0,
+            "name": "1-Grand Piano Equal Mellow Solo",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": -19.377596855163574
+          },
+          {
+            "index": 1,
+            "name": "2-E-Piano MKI Mellow",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 2,
+            "name": "electric piano",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 3,
+            "name": "4-Guitar Bass",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": -17.784819960594177
+          },
+          {
+            "index": 4,
+            "name": "5-Double Bass Section Pizzicato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 5,
+            "name": "6-Strings Ensemble Legato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 6,
+            "name": "7-Strings Ensemble Pizzicato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 7,
+            "name": "8-Strings Ensemble Staccato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 8,
+            "name": "9-Group",
+            "is_group": true,
+            "group_index": null,
+            "peak_db": -7.496548533439636
+          },
+          {
+            "index": 9,
+            "name": "10-Group",
+            "is_group": true,
+            "group_index": 8,
+            "peak_db": -21.81829071044922
+          },
+          {
+            "index": 10,
+            "name": "11-percussive-bouncy-shimmering-jazz-drums-loop_153bpm",
+            "is_group": false,
+            "group_index": 9,
+            "peak_db": -18.06780445575714
+          },
+          {
+            "index": 11,
+            "name": "12-percussive-bouncy-shimmering-jazz-drums-loop_153bpm",
+            "is_group": false,
+            "group_index": 9,
+            "peak_db": -25.101224899291992
+          },
+          {
+            "index": 12,
+            "name": "13-Kick Jazz 8",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": -11.680681467056274
+          },
+          {
+            "index": 13,
+            "name": "14-Snare Jazz",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 14,
+            "name": "15-VOX_DGS_clap_cassette",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 15,
+            "name": "16-Snare Fat Matt Break 2",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 16,
+            "name": "17-OS_SCS_Hi_Hat_Flourish_07",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 17,
+            "name": "18-Shaker Source",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": -19.2683824300766
+          },
+          {
+            "index": 18,
+            "name": "19-Hihat Half-Open Stick Tip Hard 1",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 19,
+            "name": "20-Hihat Open Vinyl Kick",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 20,
+            "name": "21-TS_NIR_Z_JJ_crash_2_one_shot_big_very_hard",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 21,
+            "name": "22-Organ Italian Highways",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 22,
+            "name": "23-muffled-bass-slide-pitched-drop",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 23,
+            "name": "24-KSHMR_sok5_150_snare_marching_triplet_cadence",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 24,
+            "name": "25-simple-shimmering-shaker-loop_120bpm",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 25,
+            "name": "26-Audio",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          }
+        ]
+      }
+    },
+    {
+      "protection": "meter_scan",
+      "measurement": {
+        "samples": 48,
+        "seconds": 4.9,
+        "master_peak_db": -19.840389728546143,
+        "target_db": -6.0,
+        "headroom_to_target_db": 13.84,
+        "tracks": [
+          {
+            "index": 0,
+            "name": "1-Grand Piano Equal Mellow Solo",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": -19.377936482429504
+          },
+          {
+            "index": 1,
+            "name": "2-E-Piano MKI Mellow",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 2,
+            "name": "electric piano",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 3,
+            "name": "4-Guitar Bass",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": -17.912753582000732
+          },
+          {
+            "index": 4,
+            "name": "5-Double Bass Section Pizzicato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 5,
+            "name": "6-Strings Ensemble Legato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 6,
+            "name": "7-Strings Ensemble Pizzicato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 7,
+            "name": "8-Strings Ensemble Staccato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 8,
+            "name": "9-Group",
+            "is_group": true,
+            "group_index": null,
+            "peak_db": -7.76953387260437
+          },
+          {
+            "index": 9,
+            "name": "10-Group",
+            "is_group": true,
+            "group_index": 8,
+            "peak_db": -21.891297340393066
+          },
+          {
+            "index": 10,
+            "name": "11-percussive-bouncy-shimmering-jazz-drums-loop_153bpm",
+            "is_group": false,
+            "group_index": 9,
+            "peak_db": -18.140833139419556
+          },
+          {
+            "index": 11,
+            "name": "12-percussive-bouncy-shimmering-jazz-drums-loop_153bpm",
+            "is_group": false,
+            "group_index": 9,
+            "peak_db": -25.101224899291992
+          },
+          {
+            "index": 12,
+            "name": "13-Kick Jazz 8",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": -11.680681467056274
+          },
+          {
+            "index": 13,
+            "name": "14-Snare Jazz",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 14,
+            "name": "15-VOX_DGS_clap_cassette",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 15,
+            "name": "16-Snare Fat Matt Break 2",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 16,
+            "name": "17-OS_SCS_Hi_Hat_Flourish_07",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 17,
+            "name": "18-Shaker Source",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": -19.2683824300766
+          },
+          {
+            "index": 18,
+            "name": "19-Hihat Half-Open Stick Tip Hard 1",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 19,
+            "name": "20-Hihat Open Vinyl Kick",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 20,
+            "name": "21-TS_NIR_Z_JJ_crash_2_one_shot_big_very_hard",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 21,
+            "name": "22-Organ Italian Highways",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 22,
+            "name": "23-muffled-bass-slide-pitched-drop",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 23,
+            "name": "24-KSHMR_sok5_150_snare_marching_triplet_cadence",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 24,
+            "name": "25-simple-shimmering-shaker-loop_120bpm",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 25,
+            "name": "26-Audio",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          }
+        ]
+      }
+    },
+    {
+      "protection": "meter_scan",
+      "measurement": {
+        "samples": 48,
+        "seconds": 4.9,
+        "master_peak_db": -21.235238909721375,
+        "target_db": -6.0,
+        "headroom_to_target_db": 15.24,
+        "tracks": [
+          {
+            "index": 0,
+            "name": "1-Grand Piano Equal Mellow Solo",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": -19.377936482429504
+          },
+          {
+            "index": 1,
+            "name": "2-E-Piano MKI Mellow",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 2,
+            "name": "electric piano",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 3,
+            "name": "4-Guitar Bass",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": -17.784819960594177
+          },
+          {
+            "index": 4,
+            "name": "5-Double Bass Section Pizzicato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 5,
+            "name": "6-Strings Ensemble Legato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 6,
+            "name": "7-Strings Ensemble Pizzicato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 7,
+            "name": "8-Strings Ensemble Staccato",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 8,
+            "name": "9-Group",
+            "is_group": true,
+            "group_index": null,
+            "peak_db": -9.375326871871948
+          },
+          {
+            "index": 9,
+            "name": "10-Group",
+            "is_group": true,
+            "group_index": 8,
+            "peak_db": -21.891297340393066
+          },
+          {
+            "index": 10,
+            "name": "11-percussive-bouncy-shimmering-jazz-drums-loop_153bpm",
+            "is_group": false,
+            "group_index": 9,
+            "peak_db": -18.140833139419556
+          },
+          {
+            "index": 11,
+            "name": "12-percussive-bouncy-shimmering-jazz-drums-loop_153bpm",
+            "is_group": false,
+            "group_index": 9,
+            "peak_db": -25.101224899291992
+          },
+          {
+            "index": 12,
+            "name": "13-Kick Jazz 8",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": -12.85970413684845
+          },
+          {
+            "index": 13,
+            "name": "14-Snare Jazz",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 14,
+            "name": "15-VOX_DGS_clap_cassette",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 15,
+            "name": "16-Snare Fat Matt Break 2",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 16,
+            "name": "17-OS_SCS_Hi_Hat_Flourish_07",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 17,
+            "name": "18-Shaker Source",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": -19.2683824300766
+          },
+          {
+            "index": 18,
+            "name": "19-Hihat Half-Open Stick Tip Hard 1",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 19,
+            "name": "20-Hihat Open Vinyl Kick",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 20,
+            "name": "21-TS_NIR_Z_JJ_crash_2_one_shot_big_very_hard",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 21,
+            "name": "22-Organ Italian Highways",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 22,
+            "name": "23-muffled-bass-slide-pitched-drop",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 23,
+            "name": "24-KSHMR_sok5_150_snare_marching_triplet_cadence",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 24,
+            "name": "25-simple-shimmering-shaker-loop_120bpm",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 25,
+            "name": "26-Audio",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          }
+        ]
+      }
+    },
+    {
+      "error": "캡처 중 재생 위치가 되돌아갔습니다"
+    }
+  ],
+  "range": {
+    "start_beats": 0,
+    "end_beats": 296.0
+  },
+  "initial_tracks": {
+    "0": {
+      "track": {
+        "index": 0,
+        "name": "1-Grand Piano Equal Mellow Solo",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.5874565839767456,
+        "panning": -0.1599999964237213,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Grand Piano Equal Mellow Solo",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Piano EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Multiband Dynamics",
+            "class_name": "MultibandDynamics",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "1-Grand Piano Equal Mellow Solo",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.5874565839767456,
+          "display": "-10.5 dB",
+          "db": -10.5
+        },
+        "panning": {
+          "value": -0.1599999964237213,
+          "display": "8L",
+          "db": 8.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "keys"
+    },
+    "1": {
+      "track": {
+        "index": 1,
+        "name": "2-E-Piano MKI Mellow",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": true,
+        "volume": 0.5749298930168152,
+        "panning": 0.1599999964237213,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "E-Piano MKI Mellow",
+            "class_name": "LoungeLizard",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Piano EQ 2",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "2-E-Piano MKI Mellow",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.5749298930168152,
+          "display": "-11.0 dB",
+          "db": -11.0
+        },
+        "panning": {
+          "value": 0.1599999964237213,
+          "display": "8R",
+          "db": 8.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "keys"
+    },
+    "2": {
+      "track": {
+        "index": 2,
+        "name": "electric piano",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.5749298930168152,
+        "panning": -0.1599999964237213,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "LABS",
+            "class_name": "PluginDevice",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Piano EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Multiband Dynamics",
+            "class_name": "MultibandDynamics",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "electric piano",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.5749298930168152,
+          "display": "-11.0 dB",
+          "db": -11.0
+        },
+        "panning": {
+          "value": -0.1599999964237213,
+          "display": "8L",
+          "db": 8.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "keys"
+    },
+    "3": {
+      "track": {
+        "index": 3,
+        "name": "4-Guitar Bass",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6499872803688049,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Guitar Bass",
+            "class_name": "Operator",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Basic Bass Amp",
+            "class_name": "AudioEffectGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 2,
+            "name": "E Bass Modern",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "4-Guitar Bass",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.6499872803688049,
+          "display": "-8.0 dB",
+          "db": -8.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "bass"
+    },
+    "4": {
+      "track": {
+        "index": 4,
+        "name": "5-Double Bass Section Pizzicato",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6499872803688049,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Double Bass Section Pizzicato",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Strings EQ 2",
+            "class_name": "Eq8",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "5-Double Bass Section Pizzicato",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.6499872803688049,
+          "display": "-8.0 dB",
+          "db": -8.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "bass"
+    },
+    "5": {
+      "track": {
+        "index": 5,
+        "name": "6-Strings Ensemble Legato",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.624942421913147,
+        "panning": -0.18000000715255737,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Strings Ensemble Legato",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Strings EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Strings Submix",
+            "class_name": "AudioEffectGroupDevice",
+            "type": "rack"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "6-Strings Ensemble Legato",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.624942421913147,
+          "display": "-9.0 dB",
+          "db": -9.0
+        },
+        "panning": {
+          "value": -0.18000000715255737,
+          "display": "9L",
+          "db": 9.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "strings"
+    },
+    "6": {
+      "track": {
+        "index": 6,
+        "name": "7-Strings Ensemble Pizzicato",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.5499871373176575,
+        "panning": 0.18000000715255737,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Strings Ensemble Pizzicato",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Strings EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "7-Strings Ensemble Pizzicato",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.5499871373176575,
+          "display": "-12.0 dB",
+          "db": -12.0
+        },
+        "panning": {
+          "value": 0.18000000715255737,
+          "display": "9R",
+          "db": 9.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "strings"
+    },
+    "7": {
+      "track": {
+        "index": 7,
+        "name": "8-Strings Ensemble Staccato",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.5499871373176575,
+        "panning": -0.18000000715255737,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Strings Ensemble Staccato",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Strings EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "8-Strings Ensemble Staccato",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.5499871373176575,
+          "display": "-12.0 dB",
+          "db": -12.0
+        },
+        "panning": {
+          "value": -0.18000000715255737,
+          "display": "9L",
+          "db": 9.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "strings"
+    },
+    "10": {
+      "track": {
+        "index": 10,
+        "name": "11-percussive-bouncy-shimmering-jazz-drums-loop_153bpm",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6749299168586731,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Reverse 1 Bar",
+            "class_name": "Looper",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Multiband Dynamics",
+            "class_name": "MultibandDynamics",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "11-percussive-bouncy-shimmering-jazz-drums-loop_153bpm",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 9,
+        "volume": {
+          "value": 0.6749299168586731,
+          "display": "-7.001 dB",
+          "db": -7.001
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "drums"
+    },
+    "11": {
+      "track": {
+        "index": 11,
+        "name": "12-percussive-bouncy-shimmering-jazz-drums-loop_153bpm",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6749299168586731,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Snare EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "12-percussive-bouncy-shimmering-jazz-drums-loop_153bpm",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 9,
+        "volume": {
+          "value": 0.6749299168586731,
+          "display": "-7.001 dB",
+          "db": -7.001
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "drums"
+    },
+    "12": {
+      "track": {
+        "index": 12,
+        "name": "13-Kick Jazz 8",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6999872326850891,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Reverse 1 Bar",
+            "class_name": "Looper",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Kick EQ 3",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "13-Kick Jazz 8",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.6999872326850891,
+          "display": "-6.0 dB",
+          "db": -6.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "kick"
+    },
+    "13": {
+      "track": {
+        "index": 13,
+        "name": "14-Snare Jazz",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6249299645423889,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Reverse 1 Bar",
+            "class_name": "Looper",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Snare EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "14-Snare Jazz",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.6249299645423889,
+          "display": "-9.0 dB",
+          "db": -9.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "snare"
+    },
+    "14": {
+      "track": {
+        "index": 14,
+        "name": "15-VOX_DGS_clap_cassette",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6249299645423889,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Snare EQ 3",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "15-VOX_DGS_clap_cassette",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.6249299645423889,
+          "display": "-9.0 dB",
+          "db": -9.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "snare"
+    },
+    "15": {
+      "track": {
+        "index": 15,
+        "name": "16-Snare Fat Matt Break 2",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6249299645423889,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Snare EQ 2",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "16-Snare Fat Matt Break 2",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.6249299645423889,
+          "display": "-9.0 dB",
+          "db": -9.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "snare"
+    },
+    "16": {
+      "track": {
+        "index": 16,
+        "name": "17-OS_SCS_Hi_Hat_Flourish_07",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.4499870240688324,
+        "panning": -0.2199999988079071,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Reverse 1 Bar",
+            "class_name": "Looper",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Cymbal EQ 2",
+            "class_name": "Eq8",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "17-OS_SCS_Hi_Hat_Flourish_07",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.4499870240688324,
+          "display": "-16.0 dB",
+          "db": -16.0
+        },
+        "panning": {
+          "value": -0.2199999988079071,
+          "display": "11L",
+          "db": 11.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "hi_hat"
+    },
+    "17": {
+      "track": {
+        "index": 17,
+        "name": "18-Shaker Source",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.5249298214912415,
+        "panning": -0.25,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Reverse 1 Bar",
+            "class_name": "Looper",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Cymbal EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "18-Shaker Source",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.5249298214912415,
+          "display": "-13.001 dB",
+          "db": -13.001
+        },
+        "panning": {
+          "value": -0.25,
+          "display": "12L",
+          "db": 12.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "percussion"
+    },
+    "18": {
+      "track": {
+        "index": 18,
+        "name": "19-Hihat Half-Open Stick Tip Hard 1",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.4499870240688324,
+        "panning": 0.2199999988079071,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Reverse 1 Bar",
+            "class_name": "Looper",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Cymbal EQ 2",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "19-Hihat Half-Open Stick Tip Hard 1",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.4499870240688324,
+          "display": "-16.0 dB",
+          "db": -16.0
+        },
+        "panning": {
+          "value": 0.2199999988079071,
+          "display": "11R",
+          "db": 11.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "hi_hat"
+    },
+    "19": {
+      "track": {
+        "index": 19,
+        "name": "20-Hihat Open Vinyl Kick",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6999872326850891,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Reverse 1 Bar",
+            "class_name": "Looper",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Cymbal EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Multiband Dynamics",
+            "class_name": "MultibandDynamics",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "20-Hihat Open Vinyl Kick",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.6999872326850891,
+          "display": "-6.0 dB",
+          "db": -6.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "kick"
+    },
+    "20": {
+      "track": {
+        "index": 20,
+        "name": "21-TS_NIR_Z_JJ_crash_2_one_shot_big_very_hard",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.4749297797679901,
+        "panning": -0.3199999928474426,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Reverse 1 Bar",
+            "class_name": "Looper",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "21-TS_NIR_Z_JJ_crash_2_one_shot_big_very_hard",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.4749297797679901,
+          "display": "-15.001 dB",
+          "db": -15.001
+        },
+        "panning": {
+          "value": -0.3199999928474426,
+          "display": "16L",
+          "db": 16.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "cymbal"
+    },
+    "21": {
+      "track": {
+        "index": 21,
+        "name": "22-Organ Italian Highways",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.5749298930168152,
+        "panning": 0.1599999964237213,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Organ Italian Highways",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Piano EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "22-Organ Italian Highways",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.5749298930168152,
+          "display": "-11.0 dB",
+          "db": -11.0
+        },
+        "panning": {
+          "value": 0.1599999964237213,
+          "display": "8R",
+          "db": 8.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "keys"
+    },
+    "22": {
+      "track": {
+        "index": 22,
+        "name": "23-muffled-bass-slide-pitched-drop",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6499872803688049,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Reverse 1 Bar",
+            "class_name": "Looper",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "23-muffled-bass-slide-pitched-drop",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.6499872803688049,
+          "display": "-8.0 dB",
+          "db": -8.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "bass"
+    },
+    "23": {
+      "track": {
+        "index": 23,
+        "name": "24-KSHMR_sok5_150_snare_marching_triplet_cadence",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6249299645423889,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Auto Pan-Tremolo",
+            "class_name": "AutoPan2",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "24-KSHMR_sok5_150_snare_marching_triplet_cadence",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.6249299645423889,
+          "display": "-9.0 dB",
+          "db": -9.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "snare"
+    },
+    "24": {
+      "track": {
+        "index": 24,
+        "name": "25-simple-shimmering-shaker-loop_120bpm",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.5249298214912415,
+        "panning": 0.25,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "LowCut",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "25-simple-shimmering-shaker-loop_120bpm",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.5249298214912415,
+          "display": "-13.001 dB",
+          "db": -13.001
+        },
+        "panning": {
+          "value": 0.25,
+          "display": "12R",
+          "db": 12.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "percussion"
+    }
+  },
+  "initial_master": {
+    "name": "Main",
+    "track_type": "master",
+    "is_group": false,
+    "group_index": null,
+    "volume": {
+      "value": 0.5499871373176575,
+      "display": "-12.0 dB",
+      "db": -12.0
+    },
+    "panning": {
+      "value": 0.0,
+      "display": "C",
+      "db": null
+    },
+    "sends": []
+  },
+  "initial_transport": {
+    "tempo": 98.0,
+    "signature_numerator": 4,
+    "signature_denominator": 4,
+    "track_count": 26,
+    "return_track_count": 2,
+    "master_track": {
+      "name": "Master",
+      "volume": 0.5499871373176575,
+      "panning": 0.0
+    },
+    "is_playing": false,
+    "current_song_time": 0.0,
+    "song_length": 296.0,
+    "loop": false,
+    "loop_start": 136.0,
+    "loop_length": 1.0
+  },
+  "analysis_ranges": [
+    [
+      0,
+      16
+    ],
+    [
+      140.0,
+      156.0
+    ],
+    [
+      280.0,
+      296.0
+    ]
+  ],
+  "track_analysis_ranges": {
+    "0": [
+      [
+        31.5,
+        47.5
+      ],
+      [
+        72.0,
+        88.0
+      ],
+      [
+        160.0,
+        176.0
+      ]
+    ],
+    "1": [
+      [
+        47.5,
+        63.5
+      ],
+      [
+        112.0,
+        128.0
+      ],
+      [
+        240.0,
+        256.0
+      ]
+    ],
+    "2": [
+      [
+        48.0,
+        64.0
+      ],
+      [
+        83.0,
+        99.0
+      ],
+      [
+        144.0,
+        160.0
+      ]
+    ],
+    "3": [
+      [
+        31.5,
+        47.5
+      ],
+      [
+        95.5,
+        111.5
+      ],
+      [
+        159.5,
+        175.5
+      ]
+    ],
+    "4": [
+      [
+        95.5,
+        111.5
+      ],
+      [
+        144.0,
+        160.0
+      ],
+      [
+        208.0,
+        224.0
+      ]
+    ],
+    "5": [
+      [
+        80.0,
+        96.0
+      ],
+      [
+        159.5,
+        175.5
+      ],
+      [
+        208.0,
+        224.0
+      ]
+    ],
+    "6": [
+      [
+        40.0,
+        56.0
+      ],
+      [
+        96.0,
+        112.0
+      ],
+      [
+        208.0,
+        224.0
+      ]
+    ],
+    "7": [
+      [
+        40.0,
+        56.0
+      ],
+      [
+        96.0,
+        112.0
+      ],
+      [
+        208.0,
+        224.0
+      ]
+    ],
+    "10": [
+      [
+        11.5,
+        27.5
+      ],
+      [
+        80.0,
+        96.0
+      ],
+      [
+        176.0,
+        192.0
+      ]
+    ],
+    "11": [
+      [
+        2.25,
+        2.5
+      ],
+      [
+        6.25,
+        6.5
+      ],
+      [
+        10.25,
+        10.5
+      ]
+    ],
+    "12": [
+      [
+        21.6875,
+        22.084018325424577
+      ],
+      [
+        29.6875,
+        30.084018325424577
+      ],
+      [
+        71.75,
+        72.27151832542458
+      ]
+    ],
+    "13": [
+      [
+        39.0,
+        39.21251847111222
+      ],
+      [
+        40.5,
+        40.71251847111222
+      ],
+      [
+        41.5,
+        41.71251847111222
+      ]
+    ],
+    "14": [
+      [
+        129.5,
+        129.844633231352
+      ],
+      [
+        131.5,
+        131.844633231352
+      ],
+      [
+        133.5,
+        133.844633231352
+      ]
+    ],
+    "15": [
+      [
+        67.5,
+        67.90070346320347
+      ],
+      [
+        75.5,
+        75.90070346320347
+      ],
+      [
+        79.5,
+        79.90070346320347
+      ]
+    ],
+    "16": [
+      [
+        39.5,
+        48.130707573676325
+      ],
+      [
+        55.5,
+        64.13070757367632
+      ],
+      [
+        103.48958333333334,
+        112.12029090700968
+      ]
+    ],
+    "17": [
+      [
+        64.3125,
+        64.39868516899767
+      ],
+      [
+        66.3125,
+        66.39868516899767
+      ],
+      [
+        72.3125,
+        72.39868516899767
+      ]
+    ],
+    "18": [
+      [
+        200.0,
+        216.0
+      ],
+      [
+        216.0,
+        232.0
+      ]
+    ],
+    "19": [
+      [
+        136.5,
+        137.12970362970364
+      ],
+      [
+        138.5,
+        139.12970362970364
+      ],
+      [
+        140.5,
+        141.12970362970364
+      ]
+    ],
+    "20": [
+      [
+        136.0,
+        144.0866336788212
+      ],
+      [
+        152.0,
+        160.0866336788212
+      ],
+      [
+        200.0,
+        208.0866336788212
+      ]
+    ],
+    "21": [
+      [
+        80.0,
+        96.0
+      ],
+      [
+        144.0,
+        160.0
+      ],
+      [
+        208.0,
+        224.0
+      ]
+    ],
+    "22": [
+      [
+        39.5,
+        40.25
+      ],
+      [
+        71.0,
+        72.25
+      ],
+      [
+        167.5,
+        168.25
+      ]
+    ],
+    "23": [
+      [
+        80.0,
+        96.0
+      ],
+      [
+        144.0,
+        160.0
+      ],
+      [
+        208.0,
+        224.0
+      ]
+    ],
+    "24": [
+      [
+        95.0,
+        111.0
+      ],
+      [
+        144.0,
+        160.0
+      ],
+      [
+        208.0,
+        224.0
+      ]
+    ]
+  },
+  "error": "캡처 중 재생 위치가 되돌아갔습니다",
+  "recovery": "Live에 적용한 믹스는 유지됩니다. initial_tracks 및 events에서 이전값과 변경 내역을 확인하세요"
+}

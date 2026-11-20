@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "model": "qwen3:8b",
+  "events": [
+    {
+      "error": "get_track_info: Error getting track info: Communication error with Ableton: Main and Return Tracks have no 'Arm' state!"
+    }
+  ],
+  "range": {
+    "start_beats": 0,
+    "end_beats": 392.092
+  },
+  "error": "get_track_info: Error getting track info: Communication error with Ableton: Main and Return Tracks have no 'Arm' state!",
+  "recovery": "Live에 적용한 믹스는 유지됩니다. initial_tracks 및 events에서 이전값과 변경 내역을 확인하세요"
+}

@@ -50,6 +50,19 @@ Live 수정 내역과 초기 믹서 상태는 `report.json`에 기록합니다. 
 
 검증은 합성 스템, 모의 Ollama 응답, 모의 Live 도구와 오디오 캡처로 수행했습니다. 실제 Ollama 모델의 음악적 판단, Ableton 기기 연결, WASAPI 오디오 경로는 실환경 검증이 필요합니다.
 
+## Vocal Line 자동 튠과 Ableton 믹싱
+
+`vocal-line`은 Vocal Line 피치 편집기입니다. 조성을 보컬에서 추정하거나 직접 선택해 자동 튠한 뒤, 음표별 편집을 거쳐 Ableton Live 보컬 트랙에 적용할 수 있습니다. 원본 듣기와 실행 취소도 지원합니다. 조성 추정은 단독 보컬의 음표에 근거하므로, 반주와 어긋나면 곡 조성을 직접 선택하세요.
+
+Ableton VST3를 빌드하려면 Visual Studio의 C++ 빌드 도구와 CMake가 설치된 Windows에서 아래를 실행합니다.
+
+```powershell
+cd vocal-line
+.\build-vst3.ps1
+```
+
+만들어진 `vocal-line\dist\VocalLine.vst3`를 VST3 폴더에 설치하고 Live에서 플러그인을 다시 검색하세요. 보컬 트랙에 Vocal Line을 넣고 **Transfer → 자동 튠 적용 → 음표 수정 → Live에 적용** 순서로 작업합니다. 한 Transfer 구간은 최대 30초입니다. 튠한 보컬을 반영한 뒤 자동 믹싱·마스터링은 이 문서의 `python auto_live.py --output-dir ...` 절차로 실행합니다.
+
 스템 파일 이름에서 악기 역할을 찾고, 실제 오디오를 분석해 트랙마다 게인, 팬, 하이패스, EQ, 컴프레션을 정합니다. 믹스부터 최종 마스터 WAV까지 한 명령으로 실행할 수 있습니다. 분류와 처리에는 로컬 규칙과 오디오 측정을 사용합니다.
 
 ## Ableton 없이 자동 믹싱 및 마스터링

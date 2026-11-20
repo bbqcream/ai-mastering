@@ -12,7 +12,7 @@ from jsonschema.exceptions import ValidationError
 
 from .audio_features import measure_audio
 from .agent_context import model_context
-from .live_audio import capture
+from .live_audio import CaptureDiscontinuity, capture
 from .live_review import ChangeReview
 from .io import load_audio
 from .live_safety import CaptureOverload, GainProtection, audition_ranges, active_audition_ranges, validate_parameter
@@ -121,7 +121,10 @@ async def call(session, tool, **arguments):
 
 async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120, device=None, target=-14, ceiling=-1):
     destination = Path(output_dir)
-    destination.mkdir(parents=True, exist_ok=False)
+    try:
+        destination.mkdir(parents=True, exist_ok=False)
+    except FileExistsError as exc:
+        raise FileExistsError(f"출력 폴더가 이미 있습니다: {destination} (기존 결과를 보호하기 위해 덮어쓰지 않았습니다)") from exc
     report = {"status": "running", "model": model.model, "events": []}
     report_path = destination / "report.json"
 
@@ -139,6 +142,8 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
         missing = REQUIRED - tools.keys()
         if missing:
             raise RuntimeError("MCP 필수 도구 누락: " + ", ".join(sorted(missing)))
+        if "switch_to_arrangement_view" in tools:
+            await call(session, "switch_to_arrangement_view")
         info = await call(session, "get_session_info")
         end = end if end is not None else info.get("song_length", 0)
         if end <= start or info.get("loop"):
@@ -146,11 +151,17 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
         report["range"] = {"start_beats": start, "end_beats": end}
         tracks = {}
         for index in range(info["track_count"]):
-            track = await call(session, "get_track_info", track_index=index)
             mixer = await call(session, "get_mixer", track_index=index)
+            # Live's get_track_info reads track.arm directly. Group tracks do
+            # not expose an arm state, so identify and skip them via get_mixer
+            # before requesting the rest of the track details.
+            if mixer.get("is_group"):
+                record({"group_skipped": index, "name": mixer.get("name")})
+                continue
+            track = await call(session, "get_track_info", track_index=index)
             if track.get("solo"):
                 raise RuntimeError("시작 전에 Live 트랙의 Solo를 모두 해제하세요")
-            if not mixer.get("is_group") and not track.get("mute") and mixer["volume"]["value"] > 0:
+            if not track.get("mute") and mixer["volume"]["value"] > 0:
                 tracks[index] = {"track": track, "mixer": mixer, "role": classify_track(track["name"])}
         if not tracks:
             raise RuntimeError("믹싱할 활성 트랙이 없습니다")
@@ -212,6 +223,11 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
                     record({"protection": "capture_overload", "attempt": attempt + 1, "track_index": index, "reason": str(exc)})
                     await protection.attenuate(6)
                     sync_protection()
+                except CaptureDiscontinuity as exc:
+                    record({"protection": "capture_discontinuity", "attempt": attempt + 1,
+                            "track_index": index, "reason": str(exc)})
+                    if attempt == 2:
+                        raise RuntimeError("Loopback 녹음에서 데이터 끊김이 3회 발생해 분석을 중단했습니다") from exc
             raise RuntimeError("출력 과부하가 반복되어 보호를 위해 중단합니다")
 
         async def measure(index=None, full=False):

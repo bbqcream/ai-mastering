@@ -1,0 +1,3182 @@
+{
+  "status": "failed",
+  "model": "qwen3:8b",
+  "events": [
+    {
+      "group_skipped": 0,
+      "name": "1-Group"
+    },
+    {
+      "group_skipped": 1,
+      "name": "2-Group"
+    },
+    {
+      "group_skipped": 5,
+      "name": "6-Group"
+    },
+    {
+      "group_skipped": 8,
+      "name": "guitars"
+    },
+    {
+      "group_skipped": 14,
+      "name": "15-Group"
+    },
+    {
+      "group_skipped": 17,
+      "name": "18-Group"
+    },
+    {
+      "protection": "meter_scan",
+      "measurement": {
+        "samples": 56,
+        "seconds": 5.65,
+        "master_peak_db": -38.37699890136719,
+        "target_db": -6.0,
+        "headroom_to_target_db": 32.38,
+        "tracks": [
+          {
+            "index": 0,
+            "name": "1-Group",
+            "is_group": true,
+            "group_index": null,
+            "peak_db": -39.13709133863449
+          },
+          {
+            "index": 1,
+            "name": "2-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 2,
+            "name": "string",
+            "is_group": false,
+            "group_index": 1,
+            "peak_db": null
+          },
+          {
+            "index": 3,
+            "name": "string",
+            "is_group": false,
+            "group_index": 1,
+            "peak_db": null
+          },
+          {
+            "index": 4,
+            "name": "bass",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 5,
+            "name": "6-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 6,
+            "name": "elec guitar",
+            "is_group": false,
+            "group_index": 5,
+            "peak_db": null
+          },
+          {
+            "index": 7,
+            "name": "elec guitar blues",
+            "is_group": false,
+            "group_index": 5,
+            "peak_db": null
+          },
+          {
+            "index": 8,
+            "name": "guitars",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": -35.457404136657715
+          },
+          {
+            "index": 9,
+            "name": "10-Guitar-Dual Amped Heavy",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 10,
+            "name": "11-Guitar-Dual Amped Heavy",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 11,
+            "name": "intro guitar",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": -36.351898550987244
+          },
+          {
+            "index": 12,
+            "name": "13-LABS",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 13,
+            "name": "14-LABS",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 14,
+            "name": "15-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 15,
+            "name": "16 melody flute (dont mix)",
+            "is_group": false,
+            "group_index": 14,
+            "peak_db": null
+          },
+          {
+            "index": 16,
+            "name": "17 melody flute (dont mix)",
+            "is_group": false,
+            "group_index": 14,
+            "peak_db": null
+          },
+          {
+            "index": 17,
+            "name": "18-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 18,
+            "name": "19-LABS",
+            "is_group": false,
+            "group_index": 17,
+            "peak_db": null
+          },
+          {
+            "index": 19,
+            "name": "20-LABS",
+            "is_group": false,
+            "group_index": 17,
+            "peak_db": null
+          },
+          {
+            "index": 20,
+            "name": "21-Organ Bach 2 Basics",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 21,
+            "name": "elec piano",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 22,
+            "name": "Drums",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 23,
+            "name": "24-cymbal-roll",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 24,
+            "name": "25-spring-field-recording",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": -43.85698187351227
+          },
+          {
+            "index": 25,
+            "name": "26-muffled-bass-slide-pitched-drop",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 26,
+            "name": "main vocal",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 27,
+            "name": "background vocal",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": -35.94644093513489
+          }
+        ]
+      }
+    },
+    {
+      "protection": "meter_scan",
+      "measurement": {
+        "samples": 56,
+        "seconds": 5.65,
+        "master_peak_db": -38.26287752389908,
+        "target_db": -6.0,
+        "headroom_to_target_db": 32.26,
+        "tracks": [
+          {
+            "index": 0,
+            "name": "1-Group",
+            "is_group": true,
+            "group_index": null,
+            "peak_db": -38.99133390188217
+          },
+          {
+            "index": 1,
+            "name": "2-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 2,
+            "name": "string",
+            "is_group": false,
+            "group_index": 1,
+            "peak_db": null
+          },
+          {
+            "index": 3,
+            "name": "string",
+            "is_group": false,
+            "group_index": 1,
+            "peak_db": null
+          },
+          {
+            "index": 4,
+            "name": "bass",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 5,
+            "name": "6-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 6,
+            "name": "elec guitar",
+            "is_group": false,
+            "group_index": 5,
+            "peak_db": null
+          },
+          {
+            "index": 7,
+            "name": "elec guitar blues",
+            "is_group": false,
+            "group_index": 5,
+            "peak_db": null
+          },
+          {
+            "index": 8,
+            "name": "guitars",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": -35.30792844295502
+          },
+          {
+            "index": 9,
+            "name": "10-Guitar-Dual Amped Heavy",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 10,
+            "name": "11-Guitar-Dual Amped Heavy",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 11,
+            "name": "intro guitar",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": -36.2611563205719
+          },
+          {
+            "index": 12,
+            "name": "13-LABS",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 13,
+            "name": "14-LABS",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 14,
+            "name": "15-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 15,
+            "name": "16 melody flute (dont mix)",
+            "is_group": false,
+            "group_index": 14,
+            "peak_db": null
+          },
+          {
+            "index": 16,
+            "name": "17 melody flute (dont mix)",
+            "is_group": false,
+            "group_index": 14,
+            "peak_db": null
+          },
+          {
+            "index": 17,
+            "name": "18-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 18,
+            "name": "19-LABS",
+            "is_group": false,
+            "group_index": 17,
+            "peak_db": null
+          },
+          {
+            "index": 19,
+            "name": "20-LABS",
+            "is_group": false,
+            "group_index": 17,
+            "peak_db": null
+          },
+          {
+            "index": 20,
+            "name": "21-Organ Bach 2 Basics",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 21,
+            "name": "elec piano",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 22,
+            "name": "Drums",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 23,
+            "name": "24-cymbal-roll",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 24,
+            "name": "25-spring-field-recording",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": -43.85698187351227
+          },
+          {
+            "index": 25,
+            "name": "26-muffled-bass-slide-pitched-drop",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 26,
+            "name": "main vocal",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 27,
+            "name": "background vocal",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": -26.890844464302063
+          }
+        ]
+      }
+    },
+    {
+      "protection": "meter_scan",
+      "measurement": {
+        "samples": 56,
+        "seconds": 5.65,
+        "master_peak_db": -38.406797885894775,
+        "target_db": -6.0,
+        "headroom_to_target_db": 32.41,
+        "tracks": [
+          {
+            "index": 0,
+            "name": "1-Group",
+            "is_group": true,
+            "group_index": null,
+            "peak_db": -38.144030034542084
+          },
+          {
+            "index": 1,
+            "name": "2-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 2,
+            "name": "string",
+            "is_group": false,
+            "group_index": 1,
+            "peak_db": null
+          },
+          {
+            "index": 3,
+            "name": "string",
+            "is_group": false,
+            "group_index": 1,
+            "peak_db": null
+          },
+          {
+            "index": 4,
+            "name": "bass",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 5,
+            "name": "6-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 6,
+            "name": "elec guitar",
+            "is_group": false,
+            "group_index": 5,
+            "peak_db": null
+          },
+          {
+            "index": 7,
+            "name": "elec guitar blues",
+            "is_group": false,
+            "group_index": 5,
+            "peak_db": null
+          },
+          {
+            "index": 8,
+            "name": "guitars",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": -34.33962905406952
+          },
+          {
+            "index": 9,
+            "name": "10-Guitar-Dual Amped Heavy",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 10,
+            "name": "11-Guitar-Dual Amped Heavy",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 11,
+            "name": "intro guitar",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": -36.43619227409363
+          },
+          {
+            "index": 12,
+            "name": "13-LABS",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 13,
+            "name": "14-LABS",
+            "is_group": false,
+            "group_index": 8,
+            "peak_db": null
+          },
+          {
+            "index": 14,
+            "name": "15-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 15,
+            "name": "16 melody flute (dont mix)",
+            "is_group": false,
+            "group_index": 14,
+            "peak_db": null
+          },
+          {
+            "index": 16,
+            "name": "17 melody flute (dont mix)",
+            "is_group": false,
+            "group_index": 14,
+            "peak_db": null
+          },
+          {
+            "index": 17,
+            "name": "18-Group",
+            "is_group": true,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 18,
+            "name": "19-LABS",
+            "is_group": false,
+            "group_index": 17,
+            "peak_db": null
+          },
+          {
+            "index": 19,
+            "name": "20-LABS",
+            "is_group": false,
+            "group_index": 17,
+            "peak_db": null
+          },
+          {
+            "index": 20,
+            "name": "21-Organ Bach 2 Basics",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 21,
+            "name": "elec piano",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 22,
+            "name": "Drums",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 23,
+            "name": "24-cymbal-roll",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 24,
+            "name": "25-spring-field-recording",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": -43.85698187351227
+          },
+          {
+            "index": 25,
+            "name": "26-muffled-bass-slide-pitched-drop",
+            "is_group": false,
+            "group_index": 0,
+            "peak_db": null
+          },
+          {
+            "index": 26,
+            "name": "main vocal",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": null
+          },
+          {
+            "index": 27,
+            "name": "background vocal",
+            "is_group": false,
+            "group_index": null,
+            "peak_db": -32.32853281497955
+          }
+        ]
+      }
+    },
+    {
+      "error": "Live 임시 상태 복구 확인 필요: 트랙 'string' 복구 대상을 유일하게 찾지 못함, 트랙 'string' 복구 대상을 유일하게 찾지 못함"
+    }
+  ],
+  "range": {
+    "start_beats": 0,
+    "end_beats": 338.6040610431235
+  },
+  "initial_tracks": {
+    "2": {
+      "track": {
+        "index": 2,
+        "name": "string",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.7629849314689636,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Strings Ensemble Legato",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "LFO",
+            "class_name": "MxDeviceAudioEffect",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Auto Pan Legacy",
+            "class_name": "AutoPan",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Reverb",
+            "class_name": "Reverb",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "string",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 1,
+        "volume": {
+          "value": 0.7629849314689636,
+          "display": "-3.479 dB",
+          "db": -3.479
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "unknown"
+    },
+    "3": {
+      "track": {
+        "index": 3,
+        "name": "string",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.8500000238418579,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "SINE Player",
+            "class_name": "PluginDevice",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Strings EQ 1",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Strings Submix",
+            "class_name": "AudioEffectGroupDevice",
+            "type": "rack"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "string",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 1,
+        "volume": {
+          "value": 0.8500000238418579,
+          "display": "0.0 dB",
+          "db": 0.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "unknown"
+    },
+    "4": {
+      "track": {
+        "index": 4,
+        "name": "bass",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.47494229674339294,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Fretless Bass",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Basic Bass Amp",
+            "class_name": "AudioEffectGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 2,
+            "name": "Cabinet",
+            "class_name": "Cabinet",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "E Bass Modern",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 4,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "bass",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 0,
+        "volume": {
+          "value": 0.47494229674339294,
+          "display": "-15.0 dB",
+          "db": -15.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "bass"
+    },
+    "6": {
+      "track": {
+        "index": 6,
+        "name": "elec guitar",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.8174566626548767,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "LABS",
+            "class_name": "PluginDevice",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Basic Heavy Guitar Amp",
+            "class_name": "AudioEffectGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 2,
+            "name": "EQ Eight",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          },
+          {
+            "index": 4,
+            "name": "Limiter",
+            "class_name": "Limiter",
+            "type": "unknown"
+          },
+          {
+            "index": 5,
+            "name": "Chorus-Ensemble",
+            "class_name": "Chorus2",
+            "type": "unknown"
+          },
+          {
+            "index": 6,
+            "name": "Guitar Tones",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "elec guitar",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 5,
+        "volume": {
+          "value": 0.8174566626548767,
+          "display": "-1.3 dB",
+          "db": -1.3
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "guitar"
+    },
+    "7": {
+      "track": {
+        "index": 7,
+        "name": "elec guitar blues",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6324570178985596,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "LABS",
+            "class_name": "PluginDevice",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Clear Acoustic Guitar",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Reverb",
+            "class_name": "Reverb",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "elec guitar blues",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 5,
+        "volume": {
+          "value": 0.6324570178985596,
+          "display": "-8.7 dB",
+          "db": -8.7
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "guitar"
+    },
+    "9": {
+      "track": {
+        "index": 9,
+        "name": "10-Guitar-Dual Amped Heavy",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.7249424457550049,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Guitar-Dual Amped Heavy",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Funky E Guitar",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Guitar - Peak Clipping",
+            "class_name": "GlueCompressor",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Guitar Tones",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          },
+          {
+            "index": 4,
+            "name": "Chorus-Ensemble",
+            "class_name": "Chorus2",
+            "type": "unknown"
+          },
+          {
+            "index": 5,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "10-Guitar-Dual Amped Heavy",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.7249424457550049,
+          "display": "-5.0 dB",
+          "db": -5.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "guitar"
+    },
+    "10": {
+      "track": {
+        "index": 10,
+        "name": "11-Guitar-Dual Amped Heavy",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.699999988079071,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Guitar-Dual Amped Heavy",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Funky E Guitar",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Guitar - Peak Clipping",
+            "class_name": "GlueCompressor",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Guitar Tones",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          },
+          {
+            "index": 4,
+            "name": "Chorus-Ensemble",
+            "class_name": "Chorus2",
+            "type": "unknown"
+          },
+          {
+            "index": 5,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "11-Guitar-Dual Amped Heavy",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.699999988079071,
+          "display": "-6.0 dB",
+          "db": -6.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "guitar"
+    },
+    "12": {
+      "track": {
+        "index": 12,
+        "name": "13-LABS",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6949424743652344,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "LABS",
+            "class_name": "PluginDevice",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Amp",
+            "class_name": "Amp",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Cabinet",
+            "class_name": "Cabinet",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          },
+          {
+            "index": 4,
+            "name": "Chorus-Ensemble",
+            "class_name": "Chorus2",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "13-LABS",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.6949424743652344,
+          "display": "-6.2 dB",
+          "db": -6.2
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "unknown"
+    },
+    "13": {
+      "track": {
+        "index": 13,
+        "name": "14-LABS",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.8999999761581421,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "LABS",
+            "class_name": "PluginDevice",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Amp",
+            "class_name": "Amp",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Cabinet",
+            "class_name": "Cabinet",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          },
+          {
+            "index": 4,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          },
+          {
+            "index": 5,
+            "name": "Chorus-Ensemble",
+            "class_name": "Chorus2",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "14-LABS",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 8,
+        "volume": {
+          "value": 0.8999999761581421,
+          "display": "2.0 dB",
+          "db": 2.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "unknown"
+    },
+    "15": {
+      "track": {
+        "index": 15,
+        "name": "16 melody flute (dont mix)",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.7674566507339478,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Synthetic Flute",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "16 melody flute (dont mix)",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 14,
+        "volume": {
+          "value": 0.7674566507339478,
+          "display": "-3.3 dB",
+          "db": -3.3
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "winds"
+    },
+    "16": {
+      "track": {
+        "index": 16,
+        "name": "17 melody flute (dont mix)",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.7674566507339478,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Synthetic Flute",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "17 melody flute (dont mix)",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 14,
+        "volume": {
+          "value": 0.7674566507339478,
+          "display": "-3.3 dB",
+          "db": -3.3
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "winds"
+    },
+    "18": {
+      "track": {
+        "index": 18,
+        "name": "19-LABS",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.8500000238418579,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "LABS",
+            "class_name": "PluginDevice",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "19-LABS",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 17,
+        "volume": {
+          "value": 0.8500000238418579,
+          "display": "0.0 dB",
+          "db": 0.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "unknown"
+    },
+    "19": {
+      "track": {
+        "index": 19,
+        "name": "20-LABS",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.8500000238418579,
+        "panning": 0.699999988079071,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "LABS",
+            "class_name": "PluginDevice",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "20-LABS",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 17,
+        "volume": {
+          "value": 0.8500000238418579,
+          "display": "0.0 dB",
+          "db": 0.0
+        },
+        "panning": {
+          "value": 0.699999988079071,
+          "display": "35R",
+          "db": 35.0
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "unknown"
+    },
+    "20": {
+      "track": {
+        "index": 20,
+        "name": "21-Organ Bach 2 Basics",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6749424934387207,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Organ Bach 2 Basics",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Piano EQ 2",
+            "class_name": "Eq8",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "21-Organ Bach 2 Basics",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 0,
+        "volume": {
+          "value": 0.6749424934387207,
+          "display": "-7.0 dB",
+          "db": -7.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "keys"
+    },
+    "21": {
+      "track": {
+        "index": 21,
+        "name": "elec piano",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.7249424457550049,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "LABS",
+            "class_name": "PluginDevice",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "Piano EQ 2",
+            "class_name": "Eq8",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "elec piano",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 0,
+        "volume": {
+          "value": 0.7249424457550049,
+          "display": "-5.0 dB",
+          "db": -5.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "keys"
+    },
+    "22": {
+      "track": {
+        "index": 22,
+        "name": "Drums",
+        "is_audio_track": false,
+        "is_midi_track": true,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.8500000238418579,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Dry Session Kit",
+            "class_name": "InstrumentGroupDevice",
+            "type": "rack"
+          },
+          {
+            "index": 1,
+            "name": "Drum Buss",
+            "class_name": "DrumBuss",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "Drums",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 0,
+        "volume": {
+          "value": 0.8500000238418579,
+          "display": "0.0 dB",
+          "db": 0.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "drums"
+    },
+    "23": {
+      "track": {
+        "index": 23,
+        "name": "24-cymbal-roll",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.7249424457550049,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "Cymbal EQ 2",
+            "class_name": "Eq8",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "24-cymbal-roll",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 0,
+        "volume": {
+          "value": 0.7249424457550049,
+          "display": "-5.0 dB",
+          "db": -5.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "cymbal"
+    },
+    "25": {
+      "track": {
+        "index": 25,
+        "name": "26-muffled-bass-slide-pitched-drop",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6000000238418579,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "E Bass Modern",
+            "class_name": "Eq8",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "26-muffled-bass-slide-pitched-drop",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": 0,
+        "volume": {
+          "value": 0.6000000238418579,
+          "display": "-10.0 dB",
+          "db": -10.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "bass"
+    },
+    "26": {
+      "track": {
+        "index": 26,
+        "name": "main vocal",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": false,
+        "volume": 0.6000000238418579,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "minemine",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "De-esser",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          },
+          {
+            "index": 4,
+            "name": "Tune Gentle",
+            "class_name": "AutoShift",
+            "type": "unknown"
+          },
+          {
+            "index": 5,
+            "name": "Limiter",
+            "class_name": "Limiter",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "main vocal",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.6000000238418579,
+          "display": "-10.0 dB",
+          "db": -10.0
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "lead_vocal"
+    },
+    "27": {
+      "track": {
+        "index": 27,
+        "name": "background vocal",
+        "is_audio_track": true,
+        "is_midi_track": false,
+        "mute": false,
+        "solo": false,
+        "arm": true,
+        "volume": 0.42999985814094543,
+        "panning": 0.0,
+        "clip_slots": [
+          {
+            "index": 0,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 1,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 2,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 3,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 4,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 5,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 6,
+            "has_clip": false,
+            "clip": null
+          },
+          {
+            "index": 7,
+            "has_clip": false,
+            "clip": null
+          }
+        ],
+        "devices": [
+          {
+            "index": 0,
+            "name": "minemine",
+            "class_name": "Eq8",
+            "type": "unknown"
+          },
+          {
+            "index": 1,
+            "name": "De-esser",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          },
+          {
+            "index": 2,
+            "name": "Compressor",
+            "class_name": "Compressor2",
+            "type": "unknown"
+          },
+          {
+            "index": 3,
+            "name": "Hybrid Reverb",
+            "class_name": "Hybrid",
+            "type": "unknown"
+          },
+          {
+            "index": 4,
+            "name": "Tune Gentle",
+            "class_name": "AutoShift",
+            "type": "unknown"
+          },
+          {
+            "index": 5,
+            "name": "Limiter",
+            "class_name": "Limiter",
+            "type": "unknown"
+          }
+        ]
+      },
+      "mixer": {
+        "name": "background vocal",
+        "track_type": "track",
+        "is_group": false,
+        "group_index": null,
+        "volume": {
+          "value": 0.42999985814094543,
+          "display": "-16.8 dB",
+          "db": -16.8
+        },
+        "panning": {
+          "value": 0.0,
+          "display": "C",
+          "db": null
+        },
+        "sends": [
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 0,
+            "name": "A-Reverb"
+          },
+          {
+            "value": 0.0,
+            "display": "-inf dB",
+            "db": null,
+            "index": 1,
+            "name": "B-Delay"
+          }
+        ]
+      },
+      "role": "lead_vocal"
+    }
+  },
+  "initial_master": {
+    "name": "Main",
+    "track_type": "master",
+    "is_group": false,
+    "group_index": null,
+    "volume": {
+      "value": 0.5499871373176575,
+      "display": "-12.0 dB",
+      "db": -12.0
+    },
+    "panning": {
+      "value": 0.0,
+      "display": "C",
+      "db": null
+    },
+    "sends": []
+  },
+  "initial_transport": {
+    "tempo": 85.0,
+    "signature_numerator": 4,
+    "signature_denominator": 4,
+    "track_count": 28,
+    "return_track_count": 2,
+    "master_track": {
+      "name": "Master",
+      "volume": 0.5499871373176575,
+      "panning": 0.0
+    },
+    "is_playing": false,
+    "current_song_time": 0.0,
+    "song_length": 338.6040610431235,
+    "loop": false,
+    "loop_start": 198.0,
+    "loop_length": 93.0
+  },
+  "analysis_ranges": [
+    [
+      0,
+      16
+    ],
+    [
+      161.30203052156176,
+      177.30203052156176
+    ],
+    [
+      322.6040610431235,
+      338.6040610431235
+    ]
+  ],
+  "track_analysis_ranges": {
+    "2": [
+      [
+        0,
+        16
+      ],
+      [
+        110.0,
+        126.0
+      ],
+      [
+        220.0,
+        236.0
+      ]
+    ],
+    "3": [
+      [
+        116.0,
+        132.0
+      ],
+      [
+        172.0,
+        188.0
+      ],
+      [
+        196.0,
+        212.0
+      ]
+    ],
+    "4": [
+      [
+        28.0,
+        44.0
+      ],
+      [
+        138.5,
+        154.5
+      ],
+      [
+        249.0,
+        265.0
+      ]
+    ],
+    "6": [
+      [
+        104.0,
+        120.0
+      ],
+      [
+        124.0,
+        140.0
+      ]
+    ],
+    "7": [
+      [
+        114.0,
+        130.0
+      ],
+      [
+        168.0,
+        184.0
+      ],
+      [
+        194.0,
+        210.0
+      ]
+    ],
+    "9": [
+      [
+        88.0,
+        104.0
+      ],
+      [
+        154.0,
+        170.0
+      ],
+      [
+        220.0,
+        236.0
+      ]
+    ],
+    "10": [
+      [
+        140.0,
+        156.0
+      ]
+    ],
+    "12": [
+      [
+        0,
+        16
+      ],
+      [
+        161.30203052156176,
+        177.30203052156176
+      ],
+      [
+        322.6040610431235,
+        338.6040610431235
+      ]
+    ],
+    "13": [
+      [
+        12.0,
+        28.0
+      ],
+      [
+        28.0,
+        44.0
+      ]
+    ],
+    "15": [
+      [
+        8.0,
+        24.0
+      ],
+      [
+        113.5,
+        129.5
+      ],
+      [
+        219.0,
+        235.0
+      ]
+    ],
+    "16": [
+      [
+        198.0,
+        214.0
+      ],
+      [
+        220.5,
+        236.5
+      ],
+      [
+        243.0,
+        259.0
+      ]
+    ],
+    "18": [
+      [
+        12.0,
+        16.0
+      ],
+      [
+        20.0,
+        24.0
+      ],
+      [
+        28.0,
+        32.0
+      ]
+    ],
+    "19": [
+      [
+        16.0,
+        20.0
+      ],
+      [
+        24.0,
+        28.0
+      ],
+      [
+        32.0,
+        36.0
+      ]
+    ],
+    "20": [
+      [
+        204.0,
+        220.0
+      ],
+      [
+        220.0,
+        236.0
+      ]
+    ],
+    "21": [
+      [
+        100.0,
+        116.0
+      ],
+      [
+        172.0,
+        188.0
+      ],
+      [
+        210.5,
+        226.5
+      ]
+    ],
+    "22": [
+      [
+        44.0,
+        60.0
+      ],
+      [
+        132.0,
+        148.0
+      ],
+      [
+        220.0,
+        236.0
+      ]
+    ],
+    "23": [
+      [
+        106.5,
+        122.5
+      ],
+      [
+        138.0,
+        154.0
+      ],
+      [
+        170.5,
+        186.5
+      ]
+    ],
+    "25": [
+      [
+        43.0,
+        47.0
+      ]
+    ],
+    "26": [
+      [
+        11.0,
+        25.75
+      ],
+      [
+        33.689145880161504,
+        49.689145880161504
+      ],
+      [
+        89.953125,
+        105.953125
+      ]
+    ],
+    "27": [
+      [
+        27.84375,
+        43.0
+      ],
+      [
+        84.125,
+        100.125
+      ],
+      [
+        115.21967264506327,
+        131.21967264506327
+      ]
+    ]
+  },
+  "error": "Live 임시 상태 복구 확인 필요: 트랙 'string' 복구 대상을 유일하게 찾지 못함, 트랙 'string' 복구 대상을 유일하게 찾지 못함",
+  "recovery": "Live에 적용한 믹스는 유지됩니다. initial_tracks 및 events에서 이전값과 변경 내역을 확인하세요"
+}
