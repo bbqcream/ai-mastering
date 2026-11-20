@@ -6,6 +6,10 @@ from urllib.parse import urlparse
 from urllib.request import ProxyHandler, Request, build_opener
 
 
+def _reject_constant(value):
+    raise ValueError(f"유한한 JSON 숫자가 필요합니다: {value}")
+
+
 class LocalAI:
     def __init__(self, model="qwen3:8b", url="http://127.0.0.1:11434", timeout=600):
         parsed = urlparse(url)
@@ -49,7 +53,7 @@ class LocalAI:
                 "options": {"temperature": 0, "num_ctx": 16384},
             })
             try:
-                result = json.loads(response["message"]["content"])
+                result = json.loads(response["message"]["content"], parse_constant=_reject_constant)
                 from jsonschema import validate
                 validate(result, schema)
                 return result

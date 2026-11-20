@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import math
 from dataclasses import asdict
 from pathlib import Path
 
@@ -20,6 +21,10 @@ def main():
     parser.add_argument("--lufs", type=float, default=-14)
     parser.add_argument("--ceiling", type=float, default=-1)
     args = parser.parse_args()
+    if not math.isfinite(args.lufs) or not -70 < args.lufs <= 0:
+        parser.error("--lufs는 -70보다 크고 0 이하여야 합니다")
+    if not math.isfinite(args.ceiling) or not -24 <= args.ceiling <= 0:
+        parser.error("--ceiling은 -24~0 범위여야 합니다")
     try:
         model = LocalAI(args.model, args.ollama)
         model.check()
