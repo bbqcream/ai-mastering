@@ -19,6 +19,7 @@ from .live_safety import CaptureOverload, GainProtection, audition_ranges, activ
 from .native_effects import NativeEffects, NATIVE_NAMES, native_name
 from .native_control import set_physical, configure_effect
 from .pipeline import master_audio
+from .report import save_report
 from .roles import PROFILES, classify_track, mixing_guidance
 
 import numpy as np
@@ -126,7 +127,7 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
 
     def record(event):
         report["events"].append(event)
-        report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
+        save_report(report_path, report)
 
     try:
         tools = {}

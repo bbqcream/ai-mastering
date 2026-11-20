@@ -83,6 +83,7 @@ class ChangeReview:
         if tool == "set_track_volume" and arguments["db"] > snapshot["before_db"] + 3:
             raise ValueError("측정 중 보호 감쇠가 적용되었습니다. 새 페이더를 기준으로 +3 dB 이내로 조정하세요")
         result = {"before": before}
+        self.record({"change_review": "snapshot", "snapshot": snapshot})
         self.advance_revision()
         try:
             yield result

@@ -1,7 +1,6 @@
 """Free, local AI stem mixing and mastering entry point."""
 
 import argparse
-import json
 import math
 from dataclasses import asdict
 from pathlib import Path
@@ -9,6 +8,7 @@ from pathlib import Path
 from core.ai_mix import ai_mix
 from core.local_ai import LocalAI
 from core.pipeline import master_audio
+from core.report import save_report
 
 
 def main():
@@ -46,7 +46,7 @@ def main():
             report.update(status="failed", error=str(exc))
             raise
         finally:
-            report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
+            save_report(report_path, report)
     except (OSError, ValueError, RuntimeError) as exc:
         parser.exit(1, f"오류: {exc}\n")
 

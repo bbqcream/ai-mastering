@@ -57,12 +57,15 @@ class LocalAI:
                 from jsonschema import validate
                 validate(result, schema)
                 return result
-            except (ValueError, KeyError) as exc:
+            except (ValueError, KeyError, TypeError) as exc:
                 error = str(exc)
             except Exception as exc:
                 from jsonschema.exceptions import ValidationError
                 if not isinstance(exc, ValidationError):
                     raise
                 error = str(exc)
+            content = response.get("message", {}).get("content") if isinstance(response, dict) and isinstance(response.get("message"), dict) else None
+            if isinstance(content, str) and content:
+                messages.append({"role": "assistant", "content": content[:6000]})
             messages.append({"role": "user", "content": "Invalid response. Correct the JSON. " + error[:800]})
         raise RuntimeError("로컬 AI가 세 번 연속 유효한 처리안을 만들지 못했습니다")
