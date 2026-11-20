@@ -1,40 +1,39 @@
-# ai-mastering (1단계: 마스터링 CLI)
+# ai-mastering
 
-```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+스템 파일 이름에서 악기 역할을 찾고, 실제 오디오를 분석해 트랙마다 게인, 팬, 하이패스, EQ, 컴프레션을 정합니다. 믹스부터 최종 마스터 WAV까지 한 명령으로 실행할 수 있습니다. 분류와 처리에는 로컬 규칙과 오디오 측정을 사용합니다.
 
-python cli.py mix.wav --dry-run                  # 분석과 제안만
-python cli.py mix.wav --ref ref.wav              # 조정안 확인 후 적용
-python cli.py mix.wav --ref ref.wav --yes --ab   # 전부 적용 + 라우드니스 맞춘 비교 파일
-python cli.py stems/ --yes -o mastered.wav       # 스템 합산 후 마스터링
-python mix_cli.py stems/ --write-plan mix.json   # 스템별 초기 믹스안 생성
-python mix_cli.py stems/ --plan mix.json -o mix.wav
-python cli.py mix.wav --yes -o mastered.wav      # 믹스 파일 마스터링
-python mix_cli.py stems/ --plan mix.json --ableton  # Live 트랙 팬 적용
+## Ableton 없이 자동 믹싱 및 마스터링
+
+```powershell
+python -m pip install -r requirements.txt
+python mix_cli.py stems --master mastered.wav
 ```
 
-구조: `core/master/analyze.py`(측정) -> `suggest.py`(조정안) -> `render.py`(적용).
-`core/types.py`의 `Adjustment`가 판단과 적용 사이의 공통 형태예요.
+`stems` 폴더에 시작점, 길이, 샘플레이트가 같은 WAV, AIFF, FLAC 스템을 넣으세요. 모노와 스테레오를 섞어서 사용할 수 있습니다. 출력은 스템 폴더 밖에 두세요.
 
-## Ableton Live 믹싱/마스터링
+- `01 킥.wav`, `808 Bass.wav`, `Lead Vox.wav`는 킥, 베이스, 리드 보컬로 분류하고 중앙에 둡니다.
+- `BGV L.wav`, `HiHat.wav`, `GTR R.wav`는 백보컬, 하이햇, 기타로 분류합니다. 모노 트랙은 이름의 좌우 표기를 반영하거나 역할별로 번갈아 배치합니다. 스테레오 스템의 팬은 중앙에 둡니다.
+- 역할별 목표 레벨과 측정된 라우드니스로 게인을 계산합니다. 역할별 대역 에너지가 두드러지면 EQ 컷을, 피크와 라우드니스 차이가 크면 해당 프로필에 따라 컴프레션을 적용합니다. 미분류·무음 스템은 개별 처리를 건너뜁니다.
+- 합산한 믹스의 피크가 −6 dBFS를 넘으면 전체 게인을 낮춥니다. 마스터는 기본 −14 LUFS를 목표로 하며, 최종 트루피크 상한은 −1 dBTP입니다. 실제 수치는 실행 결과에 표시됩니다.
 
-1. Live에서 각 트랙을 같은 시작점과 같은 종료점으로 WAV 스템 내보내기
-   (마스터 이펙트는 끄고, 모든 스템의 샘플레이트와 채널 수를 동일하게 유지).
-2. `python mix_cli.py stems/ --write-plan mix.json`으로 스템별 라우드니스 분석과
-   초기 게인 스테이징을 계산합니다. `mix.json`에서 각 트랙의 `gain_db`와
-   `pan`(-1 왼쪽, 0 중앙, +1 오른쪽)을 원하는 값으로 조정할 수 있습니다.
-3. `python mix_cli.py stems/ --plan mix.json -o mix.wav`로 스테레오 믹스를 만들고,
-   `python cli.py mix.wav --yes -o mastered.wav`로 마스터링합니다.
-4. AbletonOSC Remote Script는 `~/Music/Ableton/User Library/Remote Scripts/AbletonOSC`
-   에 설치했습니다. Live 11 이상을 재시작한 뒤 `Preferences > Link, Tempo & MIDI`
-   의 Control Surface 목록에서 `AbletonOSC`를 선택하세요. Live에
-   `Listening for OSC on port 11000` 메시지가 보이면 연결 준비가 된 것입니다.
-5. `mix.json`의 트랙 `name`은 Live 트랙 이름과 같아야 합니다(대소문자 무시).
-   `python mix_cli.py stems/ --plan mix.json --ableton`으로 이름이 일치하는 트랙에
-   팬 값을 전송할 수 있습니다. Live OSC 볼륨은 내부 파라미터 스케일이 dB와
-   다르므로 이 단계에서는 팬만 전송하고 게인 조정은 렌더된 믹스에 반영합니다.
+```powershell
+python mix_cli.py stems --write-plan mix.json
+python mix_cli.py stems --plan mix.json -o mix.wav --master mastered.wav
+python mix_cli.py stems --master mastered.wav --lufs -12 --ceiling -1
+python cli.py mix.wav --yes -o mastered.wav
+```
 
-스템은 파일명 순으로 샘플 단위 합산합니다. 길이·샘플레이트·채널 수가 다르면
-잘못 정렬된 믹스를 만들지 않도록 처리를 중단합니다. 초기 게인 제안은 스템 LUFS의
-중앙값을 기준으로 한 규칙 기반 게인 스테이징이며, 창작적 밸런스 판단을 대신하지 않습니다.
+`--write-plan`은 악기 분류, 측정치, 적용할 파라미터를 JSON에 저장합니다. `-o`는 프리마스터 믹스와 함께 확인할 때 사용하세요.
+
+## Ableton Live에서 이름으로 믹서 자동 설정
+
+[Ableton MCP Extended](https://github.com/staminna/ableton-mcp-extended)의 Remote Script와 MCP 서버가 필요합니다. 아래 설치 명령은 Python 3.11 이상과 uv가 설치된 환경에서 실행하세요. Live를 재시작하고 **Settings → Link, Tempo & MIDI → Control Surface**에서 `AbletonMCP`를 선택한 뒤 작업할 세트를 여세요.
+
+```powershell
+python -m pip install "mcp>=1.9,<2"
+uvx --from git+https://github.com/staminna/ableton-mcp-extended.git ableton-mcp-extended-install-script
+python live_mix.py --dry-run -- uvx --from git+https://github.com/staminna/ableton-mcp-extended.git ableton-mcp-extended
+python live_mix.py -- uvx --from git+https://github.com/staminna/ableton-mcp-extended.git ableton-mcp-extended
+```
+
+Live 명령은 트랙 이름을 읽어 악기 역할별 절대 페이더 dB와 팬을 적용하고, 변경값을 다시 읽어 확인합니다. 그룹, 리턴, 마스터, 미분류 트랙과 −∞ 페이더는 건너뜁니다. 열린 세트에서 EQ·컴프레션까지 적용한 결과와 마스터 WAV가 필요하면, 마스터 이펙트를 빼고 정렬된 스템을 준비해 위 스템 명령을 사용하세요. 기존 `mix_cli.py stems --plan mix.json --ableton`은 AbletonOSC 팬 전송용입니다.
