@@ -25,8 +25,28 @@ def run_master(
     else:
         y, sr = load_audio(in_path)
         stem_names = None
-    before = master.analyze(y, sr)
 
+    report = master_audio(y, sr, out_path, ref_path, target_lufs, ceiling_db, confirm, dry_run, ab_path)
+    if stem_names:
+        report.info["stems"] = stem_names
+    return report
+
+
+def master_audio(
+    y, sr, out_path, ref_path=None, target_lufs=-14.0, ceiling_db=-1.0,
+    confirm=None, dry_run=False, ab_path=None,
+):
+    """Master an in-memory mix without a lossy intermediate file."""
+    if not np.isfinite(target_lufs) or not -70 < target_lufs <= 0:
+        raise ValueError("목표 LUFS는 -70보다 크고 0 이하여야 합니다")
+    if not np.isfinite(ceiling_db) or not -24 <= ceiling_db <= 0:
+        raise ValueError("트루피크 상한은 -24~0dBTP 범위여야 합니다")
+    # Loudness measurement needs at least one 400 ms block.
+    length = len(y)
+    pad = max(0, int(np.ceil(sr * 0.4)) - length)
+    if pad:
+        y = np.pad(y, ((0, pad), (0, 0)))
+    before = master.analyze(y, sr)
     ref = None
     if ref_path:
         ry, rsr = load_audio(ref_path)
@@ -34,20 +54,20 @@ def run_master(
 
     plan = master.suggest(before, ref, target_lufs, ceiling_db)
     if dry_run:
-        info = {"stems": stem_names} if stem_names else {}
-        return Report(before=before, adjustments=plan, info=info)
+        return Report(before=before, adjustments=plan)
 
     if confirm:
         plan = confirm(plan)
 
     out, info = master.render(y, sr, plan)
-    if stem_names:
-        info["stems"] = stem_names
-    save_audio(out_path, out, sr)
+    if pad:
+        # Measure a zero-padded copy of the actual output, as for the input.
+        out[length:] = 0
     after = master.analyze(out, sr)
+    save_audio(out_path, out[:length], sr)
 
     if ab_path:
-        info["ab_note"] = _save_ab(y, sr, after["lufs"], before["lufs"], ab_path)
+        info["ab_note"] = _save_ab(y[:length], sr, after["lufs"], before["lufs"], ab_path)
 
     return Report(before=before, after=after, adjustments=plan, info=info)
 
