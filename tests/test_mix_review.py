@@ -67,6 +67,40 @@ class ReviewTests(unittest.TestCase):
 
 
 class LiveReviewTests(unittest.IsolatedAsyncioTestCase):
+    async def test_related_parameters_are_evaluated_and_restored_as_a_group(self):
+        values = {0: .5, 1: .5}
+        measurements = []
+
+        async def call(session, name, **args):
+            if name == "get_track_info":
+                return {"name": "Kick"}
+            if name == "get_device_parameters":
+                return {"device": {"name": "EQ Eight", "class_name": "Eq8", "parameters": [
+                    {"index": index, "name": f"Parameter {index}", "value": value} for index, value in values.items()
+                ]}}
+            if name == "set_device_parameter":
+                values[args["parameter_index"]] = args["value"]
+                return "OK"
+            raise AssertionError(name)
+
+        async def measure(index):
+            measurements.append(dict(values))
+            return {"crest_db": 12 if values[0] == values[1] and values[0] <= .5 else 2, "lufs": -20}
+
+        arguments = {"track_index": 0, "device_index": 0, "settings": [
+            {"parameter_index": 0, "target": .4, "unit": "hz"},
+            {"parameter_index": 1, "target": .4, "unit": "hz"},
+        ]}
+        review = ChangeReview(None, call, measure, lambda _: None, lambda: None)
+        async with review.edit("configure_effect", arguments, "kick") as accepted:
+            values.update({0: .4, 1: .4})
+        self.assertTrue(accepted["accepted"])
+        self.assertEqual(measurements, [{0: .5, 1: .5}, {0: .4, 1: .4}])
+        async with review.edit("configure_effect", arguments, "kick") as rejected:
+            values.update({0: .8, 1: .8})
+        self.assertFalse(rejected["accepted"])
+        self.assertEqual(values, {0: .4, 1: .4})
+
     async def test_bad_parameter_edit_is_restored_and_verified(self):
         parameter_value = .5
         revisions = []

@@ -17,7 +17,7 @@ from .live_review import ChangeReview
 from .io import load_audio
 from .live_safety import CaptureOverload, GainProtection, audition_ranges, active_audition_ranges, validate_parameter
 from .native_effects import NativeEffects, NATIVE_NAMES, native_name
-from .native_control import set_physical
+from .native_control import set_physical, configure_effect
 from .pipeline import master_audio
 from .roles import PROFILES, classify_track, mixing_guidance
 
@@ -74,6 +74,9 @@ assessed and the mix was measured after the last write. Mastering and final full
 performed by the host after finish. Explain each action in Korean. No user approval is needed."""
 
 PROMPT += """
+Use configure_effect for related controls such as filter mode and cutoff, or compressor threshold,
+ratio and timing. List settings in the intended order. The host evaluates the group as one edit and
+restores all its parameters on failure. Use unit choice only with discovered quantized value_items.
 Track summaries cover the whole project. focus_track contains detailed measurements for the last
 addressed track. Call get_track_info on another index to focus it. current_device holds the most
 recent device parameters. Re-read older device parameters as needed, never guess missing indices.
@@ -250,6 +253,18 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
                                          "track_index": {"type": "integer", "enum": list(tracks)},
                                          "role": {"type": "string", "enum": list(PROFILES)},
                                      }, "required": ["track_index", "role"], "additionalProperties": False}}
+        catalog["configure_effect"] = {"description": "Apply related effect parameters as one measured edit. All are rolled back together on a regression. Inspect parameter indices and choice labels first.",
+                                       "schema": {"type": "object", "properties": {
+                                           "track_index": {"type": "integer", "enum": list(tracks)},
+                                           "device_index": {"type": "integer", "minimum": 0},
+                                           "settings": {"type": "array", "minItems": 1, "maxItems": 12, "items": {
+                                               "type": "object", "properties": {
+                                                   "parameter_index": {"type": "integer", "minimum": 0},
+                                                   "target": {"type": "number"},
+                                                   "unit": {"type": "string", "enum": ["hz", "ms", "db", "ratio", "percent", "choice"]},
+                                               }, "required": ["parameter_index", "target", "unit"], "additionalProperties": False,
+                                           }},
+                                       }, "required": ["track_index", "device_index", "settings"], "additionalProperties": False}}
         catalog["finish"] = {"description": "Finish mix decisions and render the full-length master.", "schema": {"type": "object", "additionalProperties": False}}
         schema = dict(ACTION_SCHEMA)
         schema["properties"] = dict(ACTION_SCHEMA["properties"], tool={"type": "string", "enum": list(catalog)})
@@ -290,7 +305,7 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
                             parameters[(index, entry["device_index"])] = entry["parameters"]
                     tracks[index]["track"] = await call(session, "get_track_info", track_index=index)
                     tracks[index]["prepared_effects"] = result
-                elif name == "set_effect_value":
+                elif name in {"set_effect_value", "configure_effect"}:
                     index = args["track_index"]
                     key = (index, args["device_index"])
                     if key not in parameters:
@@ -299,8 +314,11 @@ async def run_agent(session, model, output_dir, start=0, end=None, max_steps=120
                     if current["name"] != tracks[index]["track"]["name"]:
                         raise RuntimeError("트랙 순서가 변경되었습니다")
                     async with review.edit(name, args, tracks[index]["role"]) as evaluation:
-                        await set_physical(session, call, record, index, args["device_index"],
-                                           args["parameter_index"], args["target"], args["unit"])
+                        if name == "configure_effect":
+                            await configure_effect(session, call, record, index, args["device_index"], args["settings"])
+                        else:
+                            await set_physical(session, call, record, index, args["device_index"],
+                                               args["parameter_index"], args["target"], args["unit"])
                     parameters[key] = await call(session, "get_device_parameters", track_index=index, device_index=args["device_index"])
                     result = {"readback": parameters[key], "review": evaluation}
                 else:

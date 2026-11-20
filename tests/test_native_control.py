@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core.native_control import display_value, set_physical
+from core.native_control import configure_effect, display_value, set_physical
 from core.native_effects import NativeEffects
 from install_live_support import install
 
@@ -35,6 +35,32 @@ class PhysicalSession:
 
 
 class NativeControlTests(unittest.IsolatedAsyncioTestCase):
+    async def test_group_supports_physical_values_and_discovered_choices(self):
+        class Session(PhysicalSession):
+            def __init__(self):
+                super().__init__()
+                self.mode = 0
+
+            async def call(self, session, name, **args):
+                if name == "set_device_parameter" and args["parameter_index"] == 1:
+                    self.mode = args["value"]
+                    return "OK"
+                result = await super().call(session, name, **args)
+                if name == "get_device_parameters":
+                    result["device"]["parameters"].append({"index": 1, "name": "Filter Type", "min": 0, "max": 2,
+                                                          "value": self.mode, "is_quantized": True,
+                                                          "value_items": ["Off", "LowPass", "HighPass"]})
+                return result
+
+        session = Session()
+        await configure_effect(session, session.call, lambda _: None, 0, 0, [
+            {"parameter_index": 0, "target": 70, "unit": "hz"},
+            {"parameter_index": 1, "target": 2, "unit": "choice"},
+        ])
+        self.assertAlmostEqual(20 * 1000 ** session.raw, 70, delta=1)
+        self.assertEqual(session.mode, 2)
+        self.assertEqual(session.fader, .85)
+
     async def test_log_frequency_uses_live_display_and_restores_output(self):
         session = PhysicalSession()
         events = []

@@ -4,6 +4,7 @@ import math
 import re
 
 from .native_effects import native_name
+from .live_safety import validate_parameter
 
 
 def display_value(text, unit):
@@ -35,6 +36,34 @@ def validate_target(parameter, target, unit):
         raise ValueError("공간계 Dry/Wet은 20% 이하로 제한합니다")
     if parameter.get("is_quantized") or not parameter.get("is_enabled", True) or parameter.get("automation_state", 0):
         raise ValueError("연속형의 활성·비자동화 파라미터만 물리 단위로 조절할 수 있습니다")
+
+
+async def configure_effect(session, call, record, index, device_index, settings):
+    """Apply a related group of controls inside the caller's measured transaction."""
+    indices = [setting["parameter_index"] for setting in settings]
+    if len(set(indices)) != len(indices):
+        raise ValueError("같은 파라미터를 한 묶음에서 중복 지정할 수 없습니다")
+    for setting in settings:
+        if (await call(session, "get_session_info")).get("is_playing"):
+            raise RuntimeError("이펙트 묶음을 설정하기 전에 재생을 멈춰야 합니다")
+        if setting["unit"] != "choice":
+            await set_physical(session, call, record, index, device_index, setting["parameter_index"], setting["target"], setting["unit"])
+            continue
+        data = await call(session, "get_device_parameters", track_index=index, device_index=device_index)
+        parameter = next((entry for entry in data["device"]["parameters"] if entry["index"] == setting["parameter_index"]), None)
+        if parameter is None or not parameter.get("is_quantized"):
+            raise ValueError("choice는 실제 선택형 파라미터에만 사용할 수 있습니다")
+        if parameter["max"] - parameter["min"] > 1 and not parameter.get("value_items"):
+            raise ValueError("선택 항목을 읽을 수 없습니다. 표시값 지원 설치를 확인하세요")
+        validate_parameter(data["device"], parameter, setting["target"])
+        record({"configure_choice": setting, "track_index": index, "device_index": device_index, "state": "requested"})
+        await call(session, "set_device_parameter", track_index=index, device_index=device_index,
+                   parameter_index=setting["parameter_index"], value=setting["target"])
+        data = await call(session, "get_device_parameters", track_index=index, device_index=device_index)
+        actual = next(entry["value"] for entry in data["device"]["parameters"] if entry["index"] == setting["parameter_index"])
+        if abs(actual - setting["target"]) > 0.001:
+            raise RuntimeError("선택형 파라미터 적용값이 다릅니다")
+    return await call(session, "get_device_parameters", track_index=index, device_index=device_index)
 
 
 async def set_physical(session, call, record, index, device_index, parameter_index, target, unit):

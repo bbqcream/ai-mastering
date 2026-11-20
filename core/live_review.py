@@ -15,10 +15,18 @@ class ChangeReview:
         index = arguments["track_index"]
         track = await self.call(self.session, "get_track_info", track_index=index)
         snapshot = {"track_index": index, "track_name": track["name"]}
+        if tool == "configure_effect":
+            snapshot["batch"] = [await self.snapshot("set_device_parameter", {
+                "track_index": index, "device_index": arguments["device_index"],
+                "parameter_index": setting["parameter_index"],
+            }) for setting in arguments["settings"]]
+            return snapshot
         if tool in {"set_device_parameter", "set_effect_value"}:
             device_index, parameter_index = arguments["device_index"], arguments["parameter_index"]
             data = await self.call(self.session, "get_device_parameters", track_index=index, device_index=device_index)
-            parameter = next(entry for entry in data["device"]["parameters"] if entry["index"] == parameter_index)
+            parameter = next((entry for entry in data["device"]["parameters"] if entry["index"] == parameter_index), None)
+            if parameter is None:
+                raise ValueError("검증된 디바이스 파라미터 인덱스가 없습니다")
             snapshot.update(tool="set_device_parameter", device_name=data["device"]["name"],
                             device_class=data["device"].get("class_name"), parameter_name=parameter["name"],
                             arguments={"track_index": index, "device_index": device_index,
@@ -32,6 +40,16 @@ class ChangeReview:
         return snapshot
 
     async def restore(self, snapshot):
+        if "batch" in snapshot:
+            errors = []
+            for child in reversed(snapshot["batch"]):
+                try:
+                    await self.restore(child)
+                except Exception as exc:
+                    errors.append(str(exc))
+            if errors:
+                raise RuntimeError("이펙트 묶음 복구 확인 필요: " + ", ".join(errors))
+            return
         index = snapshot["track_index"]
         track = await self.call(self.session, "get_track_info", track_index=index)
         if track["name"] != snapshot["track_name"]:
